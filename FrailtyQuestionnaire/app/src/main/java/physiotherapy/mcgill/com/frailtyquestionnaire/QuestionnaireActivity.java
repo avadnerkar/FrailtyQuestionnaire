@@ -12,14 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.LinearLayout;
 
 public class QuestionnaireActivity extends AppCompatActivity
-        implements QuestionnaireFragment.NavigationDrawerCallbacks {
+        implements DrawerFragment.NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
-    private QuestionnaireFragment mNavigationDrawerFragment;
+    private DrawerFragment mNavigationDrawerFragment;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -31,7 +32,7 @@ public class QuestionnaireActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
-        mNavigationDrawerFragment = (QuestionnaireFragment)
+        mNavigationDrawerFragment = (DrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
@@ -131,8 +132,16 @@ public class QuestionnaireActivity extends AppCompatActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_questionnaire, container, false);
+
+            LinearLayout containerLayout = (LinearLayout) rootView.findViewById(R.id.container);
+            containerLayout.removeAllViews();
+            inflater.inflate(DataSource.sections.get(0).questions.get(0).view, containerLayout, true);
+
             return rootView;
         }
+
+
+
 
         @Override
         public void onAttach(Activity activity) {

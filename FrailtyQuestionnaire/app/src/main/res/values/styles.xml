@@ -28,5 +28,30 @@
     </style>
 
 
+    <style name="tallerBarStyle" parent="@android:style/Widget.SeekBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@android:drawable/progress_horizontal</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_horizontal</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:maxHeight">40dip</item>
+    </style>
+
+
+    <style name="textViewSmallStyle">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="textViewDefaultStyle">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="textViewLargeStyle">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
 
 </resources>

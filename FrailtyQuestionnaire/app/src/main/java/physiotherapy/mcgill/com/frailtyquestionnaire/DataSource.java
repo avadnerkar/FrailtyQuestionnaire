@@ -1,5 +1,7 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 /**
@@ -9,16 +11,15 @@ public class DataSource {
 
     public static ArrayList<ItemSection> sections;
 
-    public static void init(){
+    public static void init(Context context){
 
-        ArrayList<ItemQuestion> questions = new ArrayList<>();
-        questions.add(new ItemQuestion(R.layout.))
-        ItemSection rnlSection = new ItemSection()
+        ArrayList<ItemQuestion> rnlQuestions = new ArrayList<>();
+        rnlQuestions.add(new ItemQuestion(R.layout.cell_rnl, context.getString(R.string.rnlTitle), context.getString(R.string.rnl1), null, "RNL1", null));
+        ItemSection rnlSection = new ItemSection(context.getString(R.string.rnl), rnlQuestions);
 
         sections = new ArrayList<>();
+        sections.add(rnlSection);
 
-
-        sections.add(new ItemSection("RNL"))
     }
 
 }
