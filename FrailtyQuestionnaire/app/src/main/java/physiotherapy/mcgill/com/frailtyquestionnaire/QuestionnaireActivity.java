@@ -1,6 +1,8 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
 import android.app.Activity;
+import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -21,6 +23,9 @@ public class QuestionnaireActivity extends AppCompatActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private DrawerFragment mNavigationDrawerFragment;
+    public static Context context;
+    public static int sectionNumber;
+    public static int questionNumber;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -32,6 +37,7 @@ public class QuestionnaireActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionnaire);
 
+        context = this;
         mNavigationDrawerFragment = (DrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -40,29 +46,32 @@ public class QuestionnaireActivity extends AppCompatActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        PlaceholderFragment fragment = PlaceholderFragment.newInstance();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment, "fragment")
+                .commit();
+
+        sectionNumber = 0;
+        questionNumber = 0;
+
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
+
+        sectionNumber = position;
+        questionNumber = 0;
+
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        PlaceholderFragment fragment = (PlaceholderFragment) fragmentManager.findFragmentByTag("fragment");
+        fragment.loadQuestion(sectionNumber, questionNumber);
     }
 
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
+    public void onSectionAttached(String title) {
+        mTitle = title;
     }
 
     public void restoreActionBar() {
@@ -117,38 +126,88 @@ public class QuestionnaireActivity extends AppCompatActivity
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        public static PlaceholderFragment newInstance() {
             PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+//            Bundle args = new Bundle();
+//            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+//            fragment.setArguments(args);
             return fragment;
         }
 
         public PlaceholderFragment() {
         }
 
+
+        public static LinearLayout containerLayout;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_questionnaire, container, false);
 
-            LinearLayout containerLayout = (LinearLayout) rootView.findViewById(R.id.container);
-            containerLayout.removeAllViews();
-            inflater.inflate(DataSource.sections.get(0).questions.get(0).view, containerLayout, true);
+            containerLayout = (LinearLayout) rootView.findViewById(R.id.container_layout);
+
+            loadQuestion(sectionNumber,questionNumber);
 
             return rootView;
         }
 
 
-
-
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((QuestionnaireActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+            //((QuestionnaireActivity) activity).onSectionAttached(DataSource.sections.get(getArguments().getInt(ARG_SECTION_NUMBER)).title);
         }
+
+
+        public void loadQuestion(int sectionNum, int questionNum){
+            ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
+            ItemQuestion.QuestionType questionType = question.questionType;
+
+            switch (questionType){
+                case RNL:
+                    new QuestionRNL(context, sectionNum, questionNum, handler);
+                    break;
+            }
+        }
+
+        public void nextQuestion(){
+            if (questionNumber < DataSource.sections.get(sectionNumber).questions.size()-1){
+                questionNumber = questionNumber + 1;
+            } else if (sectionNumber < DataSource.sections.size()-1){
+                sectionNumber = sectionNumber + 1;
+                questionNumber = 0;
+            } else {
+                //finish
+                getActivity().finish();
+                return;
+            }
+
+            loadQuestion(sectionNumber, questionNumber);
+
+        }
+
+
+        private Handler handler = new Handler() {
+            @Override
+            public void showNext() {
+                nextQuestion();
+            }
+
+            @Override
+            public void showPrevious() {
+
+            }
+        };
+
+        public interface Handler{
+            void showNext();
+
+            void showPrevious();
+
+        }
+
     }
+
+
 
 }

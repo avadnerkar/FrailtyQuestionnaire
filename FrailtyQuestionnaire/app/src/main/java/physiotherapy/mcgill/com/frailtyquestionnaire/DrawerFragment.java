@@ -1,5 +1,6 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -21,6 +22,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -97,15 +101,16 @@ public class DrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+        ArrayList<String> sections = new ArrayList<>();
+        for (ItemSection section : DataSource.sections){
+            sections.add(section.title);
+        }
+        String[] sectionsArray = sections.toArray(new String[sections.size()]);
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                }));
+                sectionsArray));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }

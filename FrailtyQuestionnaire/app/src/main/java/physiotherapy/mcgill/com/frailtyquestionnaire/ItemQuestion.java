@@ -10,11 +10,15 @@ public class ItemQuestion {
     public String subsubtitle;
     public String dbKey;
     public String[] options;
-    public int view;
+    public enum QuestionType {
+        RNL
+    }
+    public QuestionType questionType;
+    public Class questionClass;
 
-    public ItemQuestion(int view, String title, String subtitle, String subsubtitle, String dbKey, String[] options){
+    public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String dbKey, String[] options){
 
-        this.view = view;
+        this.questionType = questionType;
         this.title = title;
         this.subtitle = subtitle;
         this.dbKey = dbKey;
