@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/load_previous"
-        style="@style/buttonLarge.Secondary"/>
+        style="@style/buttonLarge.Secondary"
+        android:onClick="continueQuestionnaire"/>
 
     <View
         android:layout_width="match_parent"
@@ -84,6 +85,32 @@
         android:textSize="@dimen/text_medium"
         android:inputType="number"
         android:textColor="@color/White"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/language"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/english"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <RadioButton
+            android:id="@+id/french"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/french"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+
+    </RadioGroup>
 
     <View
         android:layout_width="match_parent"

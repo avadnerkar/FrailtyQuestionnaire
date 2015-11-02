@@ -2,12 +2,14 @@ package physiotherapy.mcgill.com.frailtyquestionnaire;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
@@ -15,13 +17,13 @@ import android.widget.TextView;
  */
 public class QuestionRNL {
 
-    public QuestionRNL(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.PlaceholderFragment.Handler handler){
+    public QuestionRNL(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
 
-        QuestionnaireActivity.PlaceholderFragment.containerLayout.removeAllViews();
-        ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
+        QuestionnaireActivity.containerLayout.removeAllViews();
+        final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_rnl, QuestionnaireActivity.PlaceholderFragment.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_rnl, QuestionnaireActivity.containerLayout, true);
 
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);
@@ -29,11 +31,24 @@ public class QuestionRNL {
         TextView subtitle = (TextView) view.findViewById(R.id.subtitle);
         subtitle.setText(question.subtitle);
 
+        TextView option1 = (TextView) view.findViewById(R.id.descriptor1);
+        TextView option2 = (TextView) view.findViewById(R.id.descriptor2);
+
+        option1.setText(question.options[0]);
+        option2.setText(question.options[1]);
+
+        final SeekBar seekBar = (SeekBar) view.findViewById(R.id.intensitySlider);
+        Cursor cursor = HomeActivity.myDb.getField(HomeActivity.currentPatientID, question.dbKey);
+        if (cursor.moveToFirst()){
+            int progress = cursor.getInt(0);
+            seekBar.setProgress(progress);
+        }
+
         Button button = (Button) view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Debug", "Button clicked");
+                HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey, String.valueOf(seekBar.getProgress()));
                 handler.showNext();
             }
         });

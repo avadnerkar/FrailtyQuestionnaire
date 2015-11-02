@@ -19,11 +19,31 @@
     <string name="hospital_id">Hospital ID</string>
     <string name="load_previous">LOAD PREVIOUS</string>
     <string name="or">OR</string>
-    <string name="rnlTitle">How much effort is it for you to:</string>
-    <string name="rnl1">Meet your self-care needs?</string>
+
+
     <string name="rnl">RNL</string>
+    <string name="rnlTitle">How much effort is it for you to:</string>
+    <string name="rnlOption1">Extreme effort</string>
+    <string name="rnlOption2">No effort at all</string>
+    <string name="rnl1">Meet your self-care needs?</string>
+    <string name="rnl2">Move around your living quarters?</string>
+    <string name="rnl3">Participate in social activities with family and/or friends?</string>
+    <string name="rnl4">Participate in recreational activities? (sports, hobbies, cards, etc.)</string>
+    <string name="rnl5">Spend your day doing an activity that is important to you?</string>
+    <string name="rnl6">Assume a role in your family?</string>
+    <string name="rnl7">Move around your community? (shopping, banking, etc.)</string>
+    <string name="rnl8">Take trips out of town?</string>
+    <string name="rnl9">Deal with life events when they happen?</string>
+    <string name="rnl10">Be comfortable with your personal relationships?</string>
+    <string name="rnl11">Be comfortable with yourself when you are in the company of others?</string>
+
     <string name="next">NEXT</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_select_patient">Select patient</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
 </resources>
