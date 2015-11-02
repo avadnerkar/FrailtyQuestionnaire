@@ -46,4 +46,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="english">English</string>
     <string name="french">French</string>
+    <string name="completed">Questionnaire completed!</string>
+    <string name="click_to_save">Click to save</string>
+    <string name="finish">Finish</string>
 </resources>

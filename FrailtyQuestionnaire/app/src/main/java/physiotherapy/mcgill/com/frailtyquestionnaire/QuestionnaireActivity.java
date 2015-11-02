@@ -2,6 +2,8 @@ package physiotherapy.mcgill.com.frailtyquestionnaire;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
+import android.os.Environment;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
@@ -16,6 +18,13 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class QuestionnaireActivity extends AppCompatActivity
         implements DrawerFragment.NavigationDrawerCallbacks {
@@ -118,6 +127,9 @@ public class QuestionnaireActivity extends AppCompatActivity
             case RNL:
                 new QuestionRNL(context, sectionNum, questionNum, handler);
                 break;
+            case COMPLETION:
+                new QuestionCompleted(context, sectionNum, questionNum, handler);
+                break;
         }
 
         mTitle = DataSource.sections.get(sectionNum).title;
@@ -137,6 +149,35 @@ public class QuestionnaireActivity extends AppCompatActivity
             finish();
         }
 
+    }
+
+
+    public static void exportToCSV(){
+        File path = Environment.getExternalStorageDirectory();
+        File filename = new File(path, "/FrailtyAnswers-" + HomeActivity.currentPatientID +".csv");
+
+        try {
+            CSVWriter writer = new CSVWriter(new FileWriter(filename), '\t');
+            writer.writeNext(new String[]{"sep=\t"});
+
+            Cursor cursor = HomeActivity.myDb.getRowData(HomeActivity.currentPatientID);
+            writer.writeNext(cursor.getColumnNames());
+
+            if (cursor.moveToFirst()){
+                ArrayList<String> values = new ArrayList<>();
+                for (int i=0; i<cursor.getColumnCount(); i++){
+                    values.add(cursor.getString(i));
+                }
+                String[] stringValues = values.toArray(new String[values.size()]);
+                writer.writeNext(stringValues);
+            }
+
+            writer.close();
+            cursor.close();
+
+        } catch (IOException e){
+            System.err.println("Caught IOException: " + e.getMessage());
+        }
     }
 
 

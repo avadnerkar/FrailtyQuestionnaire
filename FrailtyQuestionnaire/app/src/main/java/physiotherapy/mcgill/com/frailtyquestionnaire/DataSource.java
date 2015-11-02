@@ -31,9 +31,14 @@ public class DataSource {
         testQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.RNL, "Test", context.getString(R.string.rnl1), null, "TEST1", new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}));
         ItemSection testSection = new ItemSection("Test section", testQuestions);
 
+        ArrayList<ItemQuestion> completion = new ArrayList<>();
+        completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null));
+        ItemSection completionSection = new ItemSection(context.getString(R.string.finish), completion);
+
         sections = new ArrayList<>();
         sections.add(rnlSection);
         sections.add(testSection);
+        sections.add(completionSection);
 
     }
 

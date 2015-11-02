@@ -11,7 +11,7 @@ public class ItemQuestion {
     public String dbKey;
     public String[] options;
     public enum QuestionType {
-        RNL
+        RNL, COMPLETION
     }
     public QuestionType questionType;
     public Class questionClass;
