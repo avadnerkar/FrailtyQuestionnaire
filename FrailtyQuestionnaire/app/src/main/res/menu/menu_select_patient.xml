@@ -2,4 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="physiotherapy.mcgill.com.frailtyquestionnaire.SelectPatientActivity">
+
+    <item android:id="@+id/delete" android:title="@string/action_delete"
+        app:showAsAction="withText|ifRoom" />
 </menu>

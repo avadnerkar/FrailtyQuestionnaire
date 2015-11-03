@@ -1,23 +1,16 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import com.opencsv.CSVWriter;
 
@@ -68,7 +61,7 @@ public class QuestionnaireActivity extends AppCompatActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
+        // update the menu_questionnaire content by replacing fragments
 
         sectionNumber = position;
         questionNumber = 0;
@@ -96,7 +89,7 @@ public class QuestionnaireActivity extends AppCompatActivity
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
+            getMenuInflater().inflate(R.menu.menu_questionnaire, menu);
             restoreActionBar();
             return true;
         }
@@ -112,6 +105,17 @@ public class QuestionnaireActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+
+        if (item.getItemId() == R.id.action_undo) {
+            previousQuestion();
+            return true;
+        }
+
+        if (item.getItemId() == R.id.action_skip){
+            nextQuestion();
             return true;
         }
 
@@ -148,7 +152,19 @@ public class QuestionnaireActivity extends AppCompatActivity
             //finish
             finish();
         }
+    }
 
+    public void previousQuestion(){
+        if (questionNumber > 0){
+            questionNumber = questionNumber - 1;
+            loadQuestion(sectionNumber, questionNumber);
+        } else if (sectionNumber > 0){
+            sectionNumber = sectionNumber - 1;
+            questionNumber = 0;
+            onNavigationDrawerItemSelected(sectionNumber);
+        } else {
+            //Do nothing
+        }
     }
 
 
