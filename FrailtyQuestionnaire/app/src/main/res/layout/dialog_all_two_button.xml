@@ -33,7 +33,8 @@
             android:background="@null"
             android:text="@string/ok"
             android:textColor="@color/Blue"
-            android:textSize="24sp" />
+            android:textSize="@dimen/text_medium"
+            android:textAllCaps="false"/>
 
         <View
             android:layout_width="1dp"
@@ -48,7 +49,8 @@
             android:background="@null"
             android:text="@string/cancel"
             android:textColor="@color/Blue"
-            android:textSize="24sp" />
+            android:textSize="@dimen/text_medium"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

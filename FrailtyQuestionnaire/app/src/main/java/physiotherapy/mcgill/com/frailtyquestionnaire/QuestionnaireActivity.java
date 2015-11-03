@@ -103,19 +103,26 @@ public class QuestionnaireActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-
-        if (item.getItemId() == R.id.action_undo) {
+        if (id == R.id.action_undo) {
             previousQuestion();
             return true;
         }
 
-        if (item.getItemId() == R.id.action_skip){
-            nextQuestion();
+        if (id == R.id.action_skip){
+
+            AppUtils.showTwoButtonDialog(getResources().getString(R.string.skip_title), getResources().getString(R.string.not_applicable), getResources().getString(R.string.no_answer), this, new DialogTwoButton.ClickHandler() {
+                @Override
+                public void onPositiveClick() {
+                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey, getString(R.string.not_applicable));
+                    nextQuestion();
+                }
+
+                @Override
+                public void onNegativeClick() {
+                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey, getString(R.string.no_answer));
+                    nextQuestion();
+                }
+            });
             return true;
         }
 

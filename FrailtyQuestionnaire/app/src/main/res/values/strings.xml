@@ -54,4 +54,7 @@
     <string name="action_delete">Delete</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="skip_title">Why are you skipping?</string>
+    <string name="not_applicable">Not Applicable</string>
+    <string name="no_answer">No answer</string>
 </resources>
