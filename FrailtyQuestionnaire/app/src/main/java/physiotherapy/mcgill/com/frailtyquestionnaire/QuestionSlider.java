@@ -1,29 +1,25 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
  * Created by Abhishek Vadnerkar on 15-10-31.
  */
-public class QuestionRNL {
+public class QuestionSlider {
 
-    public QuestionRNL(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_rnl, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_10_point, QuestionnaireActivity.containerLayout, true);
 
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);
@@ -38,7 +34,7 @@ public class QuestionRNL {
         option2.setText(question.options[1]);
 
         final SeekBar seekBar = (SeekBar) view.findViewById(R.id.intensitySlider);
-        Cursor cursor = HomeActivity.myDb.getField(HomeActivity.currentPatientID, question.dbKey);
+        Cursor cursor = HomeActivity.myDb.getField(HomeActivity.currentPatientID, question.dbKey[0]);
         if (cursor.moveToFirst()){
             int progress = cursor.getInt(0);
             seekBar.setProgress(progress);
@@ -48,7 +44,7 @@ public class QuestionRNL {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey, String.valueOf(seekBar.getProgress()));
+                HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(seekBar.getProgress()));
                 handler.showNext();
             }
         });

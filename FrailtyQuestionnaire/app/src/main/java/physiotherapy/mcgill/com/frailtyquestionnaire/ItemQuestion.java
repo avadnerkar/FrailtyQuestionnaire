@@ -8,15 +8,14 @@ public class ItemQuestion {
     public String title;
     public String subtitle;
     public String subsubtitle;
-    public String dbKey;
+    public String[] dbKey;
     public String[] options;
+    public int[] dbValues;
     public enum QuestionType {
-        RNL, COMPLETION
+        SLIDER, COMPLETION, RADIO_VERTICAL
     }
     public QuestionType questionType;
-    public Class questionClass;
-
-    public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String dbKey, String[] options){
+    public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String[] dbKey, String[] options, int[] dbValues){
 
         this.questionType = questionType;
         this.title = title;
@@ -24,6 +23,7 @@ public class ItemQuestion {
         this.dbKey = dbKey;
         this.options = options;
         this.subsubtitle = subsubtitle;
+        this.dbValues = dbValues;
 
     }
 

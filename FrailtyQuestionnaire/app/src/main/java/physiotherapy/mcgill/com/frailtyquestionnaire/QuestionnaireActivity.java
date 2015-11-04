@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
@@ -113,13 +112,13 @@ public class QuestionnaireActivity extends AppCompatActivity
             AppUtils.showTwoButtonDialog(getResources().getString(R.string.skip_title), getResources().getString(R.string.not_applicable), getResources().getString(R.string.no_answer), this, new DialogTwoButton.ClickHandler() {
                 @Override
                 public void onPositiveClick() {
-                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey, getString(R.string.not_applicable));
+                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
                     nextQuestion();
                 }
 
                 @Override
                 public void onNegativeClick() {
-                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey, getString(R.string.no_answer));
+                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
                     nextQuestion();
                 }
             });
@@ -135,11 +134,14 @@ public class QuestionnaireActivity extends AppCompatActivity
         ItemQuestion.QuestionType questionType = question.questionType;
 
         switch (questionType){
-            case RNL:
-                new QuestionRNL(context, sectionNum, questionNum, handler);
+            case SLIDER:
+                new QuestionSlider(context, sectionNum, questionNum, handler);
                 break;
             case COMPLETION:
                 new QuestionCompleted(context, sectionNum, questionNum, handler);
+                break;
+            case RADIO_VERTICAL:
+                new QuestionRadioVertical(context, sectionNum, questionNum, handler);
                 break;
         }
 
@@ -167,8 +169,9 @@ public class QuestionnaireActivity extends AppCompatActivity
             loadQuestion(sectionNumber, questionNumber);
         } else if (sectionNumber > 0){
             sectionNumber = sectionNumber - 1;
-            questionNumber = 0;
             onNavigationDrawerItemSelected(sectionNumber);
+            questionNumber = DataSource.sections.get(sectionNumber).questions.size() - 1;
+            loadQuestion(sectionNumber, questionNumber);
         } else {
             //Do nothing
         }

@@ -32,7 +32,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 4;
+    public static final int DATABASE_VERSION = 6;
 
 
     //Table Create Statements
@@ -66,7 +66,10 @@ public class DBAdapter {
 
             for (ItemQuestion question : section.questions){
                 if (question.dbKey != null){
-                    DATA_CREATE_SQL = DATA_CREATE_SQL + question.dbKey + " text, ";
+                    for (int i=0; i<question.dbKey.length; i++){
+                        DATA_CREATE_SQL = DATA_CREATE_SQL + question.dbKey[i] + " text, ";
+                    }
+
                 }
 
             }

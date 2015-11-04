@@ -37,6 +37,26 @@
     <string name="rnl10">Be comfortable with your personal relationships?</string>
     <string name="rnl11">Be comfortable with yourself when you are in the company of others?</string>
 
+    <string name="barthel">Barthel</string>
+    <string name="barthel1">If there was no one to help you with your feeding, could you do it alone?</string>
+    <string name="barthel2">If there was no one to help you with your personal hygiene, could you do it alone?</string>
+    <string name="barthel3">If there was no one to help you, would you be able to bathe or shower without anyone present?</string>
+    <string name="barthel4">If there was no one to help you, would you be able to dress yourself?</string>
+    <string name="barthel5">If there was no one to help you, would you be able to get to the toilet on your own?</string>
+    <string name="barthel6">Do you have any trouble with bowel incontinence?</string>
+    <string name="barthel7">Do you have any trouble with bladder control?</string>
+    <string name="barthel8">Can you transfer from bed to chair independently?</string>
+    <string name="barthel9">Can you walk 50 yards without help or supervision?</string>
+    <string name="barthel10">Can you go up and down stairs independently?</string>
+    <string name="barthel11">Do you use a wheelchair?</string>
+
+    <string name="unable">Unable</string>
+    <string name="needs_assistance">Needs assistance</string>
+    <string name="fully_independent">Fully independent</string>
+    <string name="complete">Complete</string>
+    <string name="occasional_accident">Occasional accident</string>
+    <string name="complete_control">Complete control day and night</string>
+
     <string name="next">NEXT</string>
 
 <!-- TODO: Remove or change this placeholder text -->
@@ -57,4 +77,5 @@
     <string name="skip_title">Why are you skipping?</string>
     <string name="not_applicable">Not Applicable</string>
     <string name="no_answer">No answer</string>
+
 </resources>
