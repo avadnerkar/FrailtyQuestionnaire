@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@drawable/gradient_background_shape">
 
     <TextView
         android:layout_width="match_parent"
@@ -10,7 +11,8 @@
         android:textSize="@dimen/text_medium"
         android:text="TITLE"
         android:id="@+id/title"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@color/White"/>
 
     <View
         android:layout_width="match_parent"
@@ -23,7 +25,8 @@
         android:textSize="@dimen/text_medium"
         android:text="SUBTITLE"
         android:id="@+id/subtitle"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@color/White"/>
 
     <View
         android:layout_width="match_parent"

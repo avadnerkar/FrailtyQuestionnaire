@@ -3,6 +3,7 @@ package physiotherapy.mcgill.com.frailtyquestionnaire;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,7 @@ public class QuestionRadioVertical {
             rb.setText(rbText);
             rg.addView(rb);
             rb.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimension(R.dimen.text_medium));
+            rb.setTextColor(ContextCompat.getColor(context, R.color.White));
 
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
