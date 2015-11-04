@@ -50,6 +50,41 @@
     <string name="barthel10">Can you go up and down stairs independently?</string>
     <string name="barthel11">Do you use a wheelchair?</string>
 
+
+    <string name="oars">OARS-IADL</string>
+    <string name="oars1">Can you use the telphone…</string>
+    <string name="oars2">Can you get to places out of walking distance…</string>
+    <string name="oars3">Can you go shopping for groceries or clothes (assuming has transportation)…</string>
+    <string name="oars4">Can you prepare your own meals…</string>
+    <string name="oars5">Can you do your own housework…</string>
+    <string name="oars6">Can you take your own medicine…</string>
+    <string name="oars7">Can you handle your own money…</string>
+
+    <string name="oars1_2">without help, including looking up numbers and dialing</string>
+    <string name="oars1_1">with some help (can answer the phone or dial the operator in an emergency, but needs a special phone or help in getting the number or dialing)</string>
+    <string name="oars1_0">or are you completely unable to use the telephone</string>
+    <string name="oars2_2">without help (can travel on buses, taxis or drive your own car)</string>
+    <string name="oars2_1">with some help (need someone to help you or go with you when travelling</string>
+    <string name="oars2_0">or are you unable to travel unless emergency arrangements are made for a specialized vehicle like an ambulance</string>
+    <string name="oars3_2">without help (taking care of all shopping needs yourself assuming that you had transportation)</string>
+    <string name="oars3_1">with some help (need someone to go with you on all shopping trips)</string>
+    <string name="oars3_0">or are you completely unable to do any shopping</string>
+    <string name="oars4_2">without help (plan and cook meals yourself)</string>
+    <string name="oars4_1">with some help (can prepare some things but unable to cook full meals yourself)</string>
+    <string name="oars4_0">or are you completely unable to prepare any meals</string>
+    <string name="oars5_2">without help (can scrub floors etc.)</string>
+    <string name="oars5_1">with some help (can do light housework but need help with heavy work)</string>
+    <string name="oars5_0">or are you completely unable to do any housework</string>
+    <string name="oars6_2">without help (in the right doses at the right time)</string>
+    <string name="oars6_1">with some help (able to take medicine if someone prepares it for you and/or reminds you to take it)</string>
+    <string name="oars6_0">or are you completely unable to take your own medicine</string>
+    <string name="oars7_2">without help (write checks, pay bills, etc.)</string>
+    <string name="oars7_1">with some help (manage day to day buying but need some help with managing cheque book and paying bills)</string>
+    <string name="oars7_0">or are you completely unable to handle your own money</string>
+
+
+
+
     <string name="unable">Unable</string>
     <string name="needs_assistance">Needs assistance</string>
     <string name="fully_independent">Fully independent</string>

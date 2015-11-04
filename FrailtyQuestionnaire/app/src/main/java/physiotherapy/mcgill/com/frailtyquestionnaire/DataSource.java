@@ -41,6 +41,10 @@ public class DataSource {
         barthelQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.RADIO_VERTICAL, context.getString(R.string.barthel11), null, null, new String[]{"Barthel11"}, new String[]{context.getString(R.string.unable), context.getString(R.string.needs_assistance), context.getString(R.string.fully_independent)}, new int[]{0, 0, 10}));
         ItemSection barthelSection = new ItemSection(context.getString(R.string.barthel), barthelQuestions);
 
+        ArrayList<ItemQuestion> oarsQuestions = new ArrayList<>();
+        oarsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.oars1), null, null, new String[]{"OARS1"}, new String[]{context.getString(R.string.oars1_2), context.getString(R.string.oars1_1), context.getString(R.string.oars1_0)}, new int[]{2,1,0}));
+        ItemSection oarsSection = new ItemSection(context.getString(R.string.oars), oarsQuestions);
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         ItemSection completionSection = new ItemSection(context.getString(R.string.finish), completion);
@@ -48,7 +52,9 @@ public class DataSource {
         sections = new ArrayList<>();
         sections.add(rnlSection);
         sections.add(barthelSection);
+        sections.add(oarsSection);
         sections.add(completionSection);
+
 
     }
 

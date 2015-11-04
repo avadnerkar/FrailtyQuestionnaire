@@ -143,6 +143,9 @@ public class QuestionnaireActivity extends AppCompatActivity
             case RADIO_VERTICAL:
                 new QuestionRadioVertical(context, sectionNum, questionNum, handler);
                 break;
+            case BUTTON_FLEXIBLE:
+                new QuestionButtonFlexible(context, sectionNum, questionNum, handler);
+                break;
         }
 
         mTitle = DataSource.sections.get(sectionNum).title;
