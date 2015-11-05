@@ -10,12 +10,12 @@ public class ItemQuestion {
     public String subsubtitle;
     public String[] dbKey;
     public String[] options;
-    public int[] dbValues;
+    public Object[] dbValues;
     public enum QuestionType {
-        SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE
+        SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE, SLIDER_REVERSE, SLIDER_REVERSE_EDIT
     }
     public QuestionType questionType;
-    public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String[] dbKey, String[] options, int[] dbValues){
+    public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String[] dbKey, String[] options, Object[] dbValues){
 
         this.questionType = questionType;
         this.title = title;

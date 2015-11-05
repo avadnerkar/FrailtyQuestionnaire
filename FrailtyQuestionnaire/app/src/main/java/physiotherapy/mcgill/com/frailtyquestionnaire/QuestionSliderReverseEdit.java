@@ -5,24 +5,25 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
- * Created by Abhishek Vadnerkar on 15-10-31.
+ * Created by Abhishek Vadnerkar on 15-11-04.
  */
-public class QuestionSlider {
+public class QuestionSliderReverseEdit {
 
-    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionSliderReverseEdit(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_10_point, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_10_point_reverse_edit, QuestionnaireActivity.containerLayout, true);
 
-        TextView title = (TextView) view.findViewById(R.id.title);
-        title.setText(question.title);
+        final EditText title = (EditText) view.findViewById(R.id.title);
+        title.setHint(question.title);
 
         TextView subtitle = (TextView) view.findViewById(R.id.subtitle);
         subtitle.setText(question.subtitle);
@@ -49,6 +50,8 @@ public class QuestionSlider {
                     @Override
                     public void run() {
                         HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(seekBar.getProgress()));
+                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[1], title.getText().toString());
+
                     }
                 };
                 thread.start();
@@ -57,5 +60,4 @@ public class QuestionSlider {
             }
         });
     }
-
 }

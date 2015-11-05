@@ -40,7 +40,7 @@ public class QuestionRadioVertical {
 
         for (int i=0; i<question.options.length; i++){
             final String rbText = question.options[i];
-            final int rbValue = question.dbValues[i];
+            final Integer rbValue = (Integer) question.dbValues[i];
             RadioButton rb = new RadioButton(context);
             rb.setText(rbText);
             rg.addView(rb);
@@ -80,7 +80,7 @@ public class QuestionRadioVertical {
             } else {
                 int radioValue = cursor.getInt(cursor.getColumnIndex(question.dbKey[0]));
                 for (int i=0; i<question.options.length; i++){
-                    int rbValue = question.dbValues[i];
+                    Integer rbValue = (Integer) question.dbValues[i];
                     if (rbValue == radioValue){
                         ((RadioButton)rg.getChildAt(i)).setChecked(true);
                     }

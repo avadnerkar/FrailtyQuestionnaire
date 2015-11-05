@@ -41,7 +41,7 @@
         <item name="android:layout_marginEnd">@dimen/button_horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/button_vertical_margin</item>
         <item name="android:layout_marginBottom">@dimen/button_vertical_margin</item>
-        <item name="android:textColor">@color/White</item>
+        <item name="android:textColor">@color/RoyalBlue</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:layout_gravity">center_vertical|center_horizontal</item>
         <item name="android:padding">@dimen/button_padding</item>

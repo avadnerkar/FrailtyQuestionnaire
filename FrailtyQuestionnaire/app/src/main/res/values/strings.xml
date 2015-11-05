@@ -82,8 +82,26 @@
     <string name="oars7_1">with some help (manage day to day buying but need some help with managing cheque book and paying bills)</string>
     <string name="oars7_0">or are you completely unable to handle your own money</string>
 
+    <string name="gds">GDS-Rasch</string>
+    <string name="gds1">Are you basically satisfied with your life?</string>
+    <string name="gds2">Do you feel that your life is empty?</string>
+    <string name="gds3">Do you often get bored?</string>
+    <string name="gds4">Are you in good spirits most of the time?</string>
+    <string name="gds5">Do you feel happy most of the time?</string>
+    <string name="gds6">Do you often feel helpless?</string>
+    <string name="gds7">Do you think it is wonderful to be alive now?</string>
+    <string name="gds8">Do you feel that your situation is hopeless?</string>
 
 
+    <string name="vahs">Visual Analogue Health States</string>
+    <string name="vahs1">How would you rate your overall health?</string>
+    <string name="vahs2">How well are you sleeping?</string>
+    <string name="vahs3">How much distress are you experiencing?</string>
+    <string name="vahs4">How much pain are you experiencing?</string>
+    <string name="vahs5">How much fatigue are you experiencing?</string>
+    <string name="vahs6">How much depression are you experiencing?</string>
+    <string name="vahs7">How much anxiety are you experiencing?</string>
+    <string name="vahs8">Other symptoms?</string>
 
     <string name="unable">Unable</string>
     <string name="needs_assistance">Needs assistance</string>
@@ -91,6 +109,17 @@
     <string name="complete">Complete</string>
     <string name="occasional_accident">Occasional accident</string>
     <string name="complete_control">Complete control day and night</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="excellent">Excellent</string>
+    <string name="poor">Poor</string>
+    <string name="none">None</string>
+    <string name="much_distress">Much distress</string>
+    <string name="much_pain">Much pain</string>
+    <string name="much_fatigue">Much fatigue</string>
+    <string name="much_depression">Much depression</string>
+    <string name="much_anxiety">Much anxiety</string>
+    <string name="much">Much</string>
 
     <string name="next">NEXT</string>
 

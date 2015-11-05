@@ -3,6 +3,7 @@ package physiotherapy.mcgill.com.frailtyquestionnaire;
 import android.app.ActionBar;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,14 +35,34 @@ public class QuestionButtonFlexible {
             layoutParams.setMargins(0, 10, 0, 10);
             button.setLayoutParams(layoutParams);
             button.setText(question.options[i]);
+            button.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimension(R.dimen.text_medium));
             button.setBackground(ContextCompat.getDrawable(context, R.drawable.button_primary));
+            button.setTransformationMethod(null);
             linearLayout.addView(button);
 
-//            if (i<question.options.length-1){
-//                View space = new View(context);
-//                space.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
-//                linearLayout.addView(space);
-//            }
+            String dbValue = null;
+            if (question.dbValues[i] instanceof Integer){
+                dbValue = String.valueOf(question.dbValues[i]);
+            } else if (question.dbValues[i] instanceof String){
+                dbValue = (String) question.dbValues[i];
+            }
+            final String dbValueFinal = dbValue;
+
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Thread thread = new Thread(){
+                        @Override
+                        public void run() {
+                            HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], dbValueFinal);
+                        }
+                    };
+                    thread.start();
+
+                    handler.showNext();
+                }
+            });
+
         }
 
     }
