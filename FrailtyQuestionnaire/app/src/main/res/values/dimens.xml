@@ -15,8 +15,11 @@
     <dimen name="text_medium">20sp</dimen>
     <dimen name="text_large">24sp</dimen>
     <dimen name="text_heading">30dp</dimen>
+    <dimen name="text_very_large">60sp</dimen>
 
 
     <dimen name="bar_height">50dp</dimen>
+    <dimen name="button_diameter">60dp</dimen>
+    <dimen name="number_field_width">100dp</dimen>
 
 </resources>

@@ -1,0 +1,99 @@
+package physiotherapy.mcgill.com.frailtyquestionnaire;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+/**
+ * Created by Abhishek Vadnerkar on 15-11-05.
+ */
+public class QuestionSmiley {
+
+    public QuestionSmiley(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+
+        QuestionnaireActivity.containerLayout.removeAllViews();
+        final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
+
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.cell_smiley, QuestionnaireActivity.containerLayout, true);
+
+
+        TextView title = (TextView) view.findViewById(R.id.title);
+        title.setText(question.title);
+
+
+        ImageButton button1 = (ImageButton) view.findViewById(R.id.button1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(1, question, handler);
+            }
+        });
+
+        ImageButton button2 = (ImageButton) view.findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(2, question, handler);
+            }
+        });
+
+        ImageButton button3 = (ImageButton) view.findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(3, question, handler);
+            }
+        });
+
+        ImageButton button4 = (ImageButton) view.findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(4, question, handler);
+            }
+        });
+
+        ImageButton button5 = (ImageButton) view.findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(5, question, handler);
+            }
+        });
+
+        ImageButton button6 = (ImageButton) view.findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(6, question, handler);
+            }
+        });
+
+        ImageButton button7 = (ImageButton) view.findViewById(R.id.button7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextQuestion(7, question, handler);
+            }
+        });
+
+    }
+
+
+    public void nextQuestion(final int score, final ItemQuestion question, final QuestionnaireActivity.Handler handler){
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(score));
+            }
+        };
+        thread.start();
+
+        handler.showNext();
+    }
+
+}

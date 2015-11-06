@@ -41,7 +41,9 @@ public class QuestionButtonFlexible {
             linearLayout.addView(button);
 
             String dbValue = null;
-            if (question.dbValues[i] instanceof Integer){
+            if (question.dbValues == null){
+                dbValue = question.options[i];
+            } else if (question.dbValues[i] instanceof Integer){
                 dbValue = String.valueOf(question.dbValues[i]);
             } else if (question.dbValues[i] instanceof String){
                 dbValue = (String) question.dbValues[i];

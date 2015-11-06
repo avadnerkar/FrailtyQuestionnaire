@@ -1,5 +1,6 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
+import android.content.ClipData;
 import android.content.Context;
 
 import java.util.ArrayList;
@@ -73,16 +74,62 @@ public class DataSource {
         vahsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_REVERSE_EDIT, context.getString(R.string.vahs8), null, null, new String[]{"VAHS8", "VAHS_OTHER"}, new String[]{context.getString(R.string.none), context.getString(R.string.much)}, null));
         ItemSection vahsSection = new ItemSection(context.getString(R.string.vahs), vahsQuestions);
 
+        ArrayList<ItemQuestion> falls = new ArrayList<>();
+        falls.add(new ItemQuestion(ItemQuestion.QuestionType.PLUS_MINUS, context.getString(R.string.falls1), null, null, new String[]{"NumFalls"}, null, null));
+        falls.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.falls2), null, null, new String[]{"FallOutcome"}, new String[]{context.getString(R.string.injury_treatment), context.getString(R.string.injury_without_treatment), context.getString(R.string.no_injury), context.getString(R.string.no_falls)}, new String[]{"InjuryWithTreatment", "InjuryWithoutTreatment", "NoInjury", "NoFalls"}));
+        ItemSection fallSection = new ItemSection(context.getString(R.string.falls), falls);
+
+        ArrayList<ItemQuestion> mood = new ArrayList<>();
+        mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.motivation), null, null, new String[]{"Motivation"}, null, null));
+        mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.mood), null, null, new String[]{"Mood"}, null, null));
+        mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.pain), null, null, new String[]{"Pain"}, null, null));
+        mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.fatigue), null, null, new String[]{"Fatigue"}, null, null));
+        ItemSection moodSection = new ItemSection(context.getString(R.string.moodTitle), mood);
+
+
+        ArrayList<ItemQuestion> appetite = new ArrayList<>();
+        appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite1), null, null, new String[]{"Appetite1"}, new String[]{context.getString(R.string.very_poor), context.getString(R.string.poor), context.getString(R.string.average), context.getString(R.string.good), context.getString(R.string.very_good)}, null));
+        appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite2), null, null, new String[]{"Appetite2"}, new String[]{context.getString(R.string.appetite2_1), context.getString(R.string.appetite2_2), context.getString(R.string.appetite2_3), context.getString(R.string.appetite2_4), context.getString(R.string.appetite2_5)}, null));
+        appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite3), null, null, new String[]{"Appetite3"}, new String[]{context.getString(R.string.very_bad), context.getString(R.string.bad), context.getString(R.string.average), context.getString(R.string.good), context.getString(R.string.very_good)}, null));
+        appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite4), null, null, new String[]{"Appetite4"}, new String[]{context.getString(R.string.meals0), context.getString(R.string.meals1), context.getString(R.string.meals2), context.getString(R.string.meals3), context.getString(R.string.meals4)}, null));
+        ItemSection appetiteSection = new ItemSection(context.getString(R.string.appetite), appetite);
+
+        ArrayList<ItemQuestion> driving = new ArrayList<>();
+        driving.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.driving1), null, null, new String[]{"Driving1"}, new String[]{context.getString(R.string.driving1_1), context.getString(R.string.driving1_2), context.getString(R.string.driving1_3), context.getString(R.string.driving1_4)}, null));
+        ItemSection drivingSection = new ItemSection(context.getString(R.string.driving), driving);
+
+        ArrayList<ItemQuestion> walking = new ArrayList<>();
+        walking.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.walking), null, null, new String[]{"Walking1"}, new String[]{context.getString(R.string.walking1_1), context.getString(R.string.walking1_2), context.getString(R.string.walking1_3), context.getString(R.string.walking1_4), context.getString(R.string.walking1_5), context.getString(R.string.walking1_6)}, null));
+        ItemSection walkingSection = new ItemSection(context.getString(R.string.walking), walking);
+
+        ArrayList<ItemQuestion> dizzy = new ArrayList<>();
+        dizzy.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.dizzy1), null, null, new String[]{"Dizzy1"}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}, null));
+        dizzy.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.dizzy2), null, null, new String[]{"Dizzy2"}, new String[]{context.getString(R.string.dizzy2_1), context.getString(R.string.dizzy2_2), context.getString(R.string.dizzy2_3), context.getString(R.string.dizzy2_4), context.getString(R.string.dizzy2_5)}, null));
+        ItemSection dizzySection = new ItemSection(context.getString(R.string.dizzy), dizzy);
+
+        ArrayList<ItemQuestion> urine = new ArrayList<>();
+        urine.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.urine1), null, null, new String[]{"ICIQ1"}, new String[]{context.getString(R.string.urine1_1), context.getString(R.string.urine1_2), context.getString(R.string.urine1_3), context.getString(R.string.urine1_4), context.getString(R.string.urine1_5), context.getString(R.string.urine1_6)}, new Integer[]{0, 1, 2, 3, 4, 5}));
+        urine.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.urine2), null, null, new String[]{"ICIQ2"}, new String[]{context.getString(R.string.urine2_1), context.getString(R.string.urine2_2), context.getString(R.string.urine2_3), context.getString(R.string.urine2_4)}, new Integer[]{0, 2, 4, 6}));
+        urine.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_REVERSE, context.getString(R.string.urine3), null, null, new String[]{"ICIQ3"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.a_great_deal)}, null));
+        ItemSection urineSection = new ItemSection(context.getString(R.string.urine), urine);
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         ItemSection completionSection = new ItemSection(context.getString(R.string.finish), completion);
 
         sections = new ArrayList<>();
+        sections.add(fallSection);
         sections.add(rnlSection);
         sections.add(barthelSection);
         sections.add(oarsSection);
         sections.add(gdsSection);
         sections.add(vahsSection);
+        sections.add(moodSection);
+        sections.add(appetiteSection);
+        sections.add(drivingSection);
+        sections.add(walkingSection);
+        sections.add(dizzySection);
+        sections.add(urineSection);
         sections.add(completionSection);
 
 

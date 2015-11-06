@@ -152,6 +152,12 @@ public class QuestionnaireActivity extends AppCompatActivity
             case SLIDER_REVERSE_EDIT:
                 new QuestionSliderReverseEdit(context, sectionNum, questionNum, handler);
                 break;
+            case PLUS_MINUS:
+                new QuestionPlusMinus(context, sectionNum, questionNum, handler);
+                break;
+            case SMILEY:
+                new QuestionSmiley(context, sectionNum, questionNum, handler);
+                break;
         }
 
         mTitle = DataSource.sections.get(sectionNum).title;

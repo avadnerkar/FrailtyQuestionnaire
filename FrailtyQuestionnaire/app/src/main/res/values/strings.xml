@@ -103,6 +103,92 @@
     <string name="vahs7">How much anxiety are you experiencing?</string>
     <string name="vahs8">Other symptoms?</string>
 
+
+    <string name="falls">Falls history</string>
+    <string name="falls1">How many times do you remember falling in the last year?</string>
+    <string name="falls2">Have any of the falls produced:</string>
+
+    <string name="injury_treatment">Any injury with treatment</string>
+    <string name="injury_without_treatment">An injury without treatment</string>
+    <string name="no_injury">No injury</string>
+    <string name="no_falls">No falls in past year</string>
+
+    <string name="moodTitle">Mood scale</string>
+    <string name="motivation">Motivation</string>
+    <string name="mood">Mood</string>
+    <string name="pain">Pain</string>
+    <string name="fatigue">Fatigue</string>
+
+
+    <string name="appetite">Appetite</string>
+    <string name="appetite1">My appetite is:</string>
+    <string name="appetite2">When I eat:</string>
+    <string name="appetite3">Food tastes:</string>
+    <string name="appetite4">Normally I eat:</string>
+
+    <string name="very_poor">Very poor</string>
+    <string name="average">Average</string>
+    <string name="good">Good</string>
+    <string name="very_good">Very good</string>
+    <string name="appetite2_1">I feel full after eating only a few mouthfuls</string>
+    <string name="appetite2_2">I feel full after eating a third of a meal</string>
+    <string name="appetite2_3">I feel full after eating over half a meal</string>
+    <string name="appetite2_4">I feel full after eating most of the meal</string>
+    <string name="appetite2_5">I hardly ever feel full</string>
+    <string name="very_bad">Very bad</string>
+    <string name="bad">Bad</string>
+    <string name="meals0">Less than one meal a day</string>
+    <string name="meals1">One meal a day</string>
+    <string name="meals2">Two meals a day</string>
+    <string name="meals3">Three meals a day</string>
+    <string name="meals4">More than three meals a day</string>
+
+    <string name="driving">Driving</string>
+    <string name="driving1">How would you best describe your ability to drive a car:</string>
+    <string name="driving1_1">I can drive a car anywhere</string>
+    <string name="driving1_2">I can drive a car in my neighbourhood avoiding traffic or highways</string>
+    <string name="driving1_3">I no longer drive</string>
+    <string name="driving1_4">I never drove</string>
+
+    <string name="walking">Walking</string>
+    <string name="walking1">Which of the following best describes your walking speed:</string>
+    <string name="walking1_1">Unable to walk</string>
+    <string name="walking1_2">Very slow</string>
+    <string name="walking1_3">Stroll at easy pace</string>
+    <string name="walking1_4">Normal speed</string>
+    <string name="walking1_5">Fairly brisk</string>
+    <string name="walking1_6">Fast</string>
+
+    <string name="dizzy">Dizzy</string>
+    <string name="dizzy1">Do you feel dizzy/lighteaded?</string>
+    <string name="dizzy2">How often do you get dizzy/lightheaded?</string>
+    <string name="dizzy2_1">Very often (6–7 days/week)</string>
+    <string name="dizzy2_2">Often (1 day/week)</string>
+    <string name="dizzy2_3">Sometimes (1 day/month)</string>
+    <string name="dizzy2_4">Occasionally (2 days/year)</string>
+    <string name="dizzy2_5">Never</string>
+
+    <string name="urine">ICIQ</string>
+    <string name="urine1">How often do you leak urine?</string>
+    <string name="urine2">We would like to know how much urine you think leaks.  How much urine do you usually leak (whether you wear protection or not)?</string>
+    <string name="urine3">Overall, how much does leaking urine interfere with your everyday life?</string>
+
+    <string name="urine1_1">Never</string>
+    <string name="urine1_2">About once a week or less often</string>
+    <string name="urine1_3">Two or three times a week</string>
+    <string name="urine1_4">About once a day</string>
+    <string name="urine1_5">Several times a day</string>
+    <string name="urine1_6">All the time</string>
+
+    <string name="urine2_1">None</string>
+    <string name="urine2_2">A small amount</string>
+    <string name="urine2_3">A moderate amount</string>
+    <string name="urine2_4">A large amount</string>
+
+    <string name="not_at_all">Not at all</string>
+    <string name="a_great_deal">A great deal</string>
+
+
     <string name="unable">Unable</string>
     <string name="needs_assistance">Needs assistance</string>
     <string name="fully_independent">Fully independent</string>
