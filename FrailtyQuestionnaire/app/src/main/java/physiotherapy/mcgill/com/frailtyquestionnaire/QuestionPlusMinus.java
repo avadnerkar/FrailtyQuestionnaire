@@ -13,7 +13,7 @@ public class QuestionPlusMinus {
 
     static int number;
 
-    public QuestionPlusMinus(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionPlusMinus(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
@@ -62,7 +62,7 @@ public class QuestionPlusMinus {
                 };
                 thread.start();
 
-                handler.showNext();
+                questionHandler.showNext();
             }
         });
     }

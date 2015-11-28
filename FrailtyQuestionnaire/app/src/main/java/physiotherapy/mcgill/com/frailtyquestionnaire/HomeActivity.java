@@ -1,6 +1,7 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -20,11 +22,13 @@ public class HomeActivity extends Activity {
 
     public static DBAdapter myDb;
     public static long currentPatientID;
+    public Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        context = this;
         DataSource.init(this);
         myDb = new DBAdapter(this);
         myDb.open();
@@ -72,31 +76,50 @@ public class HomeActivity extends Activity {
 
     public void startQuestionnaire(View view) {
 
-        EditText editFirstName = (EditText) findViewById(R.id.first_name);
-        EditText editLastName = (EditText) findViewById(R.id.last_name);
-        EditText editHospitalID = (EditText) findViewById(R.id.hospital_id);
+        DialogDisclaimer.ClickHandler handler = new DialogDisclaimer.ClickHandler() {
+            @Override
+            public void onSuccess() {
+                EditText editFirstName = (EditText) findViewById(R.id.first_name);
+                EditText editLastName = (EditText) findViewById(R.id.last_name);
+                EditText editHospitalID = (EditText) findViewById(R.id.hospital_id);
 
-        String firstName = editFirstName.getText().toString();
-        String lastName = editLastName.getText().toString();
-        String hospitalID = editHospitalID.getText().toString();
+                String firstName = editFirstName.getText().toString();
+                String lastName = editLastName.getText().toString();
+                String hospitalID = editHospitalID.getText().toString();
 
 
 
-        RadioGroup rg = (RadioGroup) findViewById(R.id.language);
-        String language;
-        int id = rg.getCheckedRadioButtonId();
-        if (id == R.id.english){
-            setLocale("en");
-            language = getString(R.string.english);
-        } else{
-            setLocale("fr");
-            language = getString(R.string.french);
-        }
+                RadioGroup rg = (RadioGroup) findViewById(R.id.language);
+                String language;
+                int id = rg.getCheckedRadioButtonId();
+                if (id == R.id.english){
+                    setLocale("en");
+                    language = getString(R.string.english);
+                } else{
+                    setLocale("fr");
+                    language = getString(R.string.french);
+                }
 
-        currentPatientID = myDb.createData(firstName, lastName, hospitalID, language);
+                currentPatientID = myDb.createData(firstName, lastName, hospitalID, language);
 
-        Intent intent = new Intent(this, QuestionnaireActivity.class);
-        startActivity(intent);
+                Intent intent = new Intent(context, QuestionnaireActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure() {
+                DialogSimple dialog = new DialogSimple(context);
+                //dialog.setTitle(context.getString(R.string.disclaimer_error));
+                dialog.show();
+                TextView title = (TextView) dialog.findViewById(R.id.dialog_title);
+                title.setText(context.getString(R.string.disclaimer_error));
+            }
+        };
+        DialogDisclaimer dialog = new DialogDisclaimer(this, handler);
+        dialog.show();
+
+
+
 
     }
 

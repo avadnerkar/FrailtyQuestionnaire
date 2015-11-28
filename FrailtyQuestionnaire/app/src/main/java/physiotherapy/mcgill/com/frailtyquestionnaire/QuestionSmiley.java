@@ -3,7 +3,6 @@ package physiotherapy.mcgill.com.frailtyquestionnaire;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -12,7 +11,7 @@ import android.widget.TextView;
  */
 public class QuestionSmiley {
 
-    public QuestionSmiley(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionSmiley(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
@@ -29,7 +28,7 @@ public class QuestionSmiley {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(1, question, handler);
+                nextQuestion(1, question, questionHandler);
             }
         });
 
@@ -37,7 +36,7 @@ public class QuestionSmiley {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(2, question, handler);
+                nextQuestion(2, question, questionHandler);
             }
         });
 
@@ -45,7 +44,7 @@ public class QuestionSmiley {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(3, question, handler);
+                nextQuestion(3, question, questionHandler);
             }
         });
 
@@ -53,7 +52,7 @@ public class QuestionSmiley {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(4, question, handler);
+                nextQuestion(4, question, questionHandler);
             }
         });
 
@@ -61,7 +60,7 @@ public class QuestionSmiley {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(5, question, handler);
+                nextQuestion(5, question, questionHandler);
             }
         });
 
@@ -69,7 +68,7 @@ public class QuestionSmiley {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(6, question, handler);
+                nextQuestion(6, question, questionHandler);
             }
         });
 
@@ -77,14 +76,14 @@ public class QuestionSmiley {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion(7, question, handler);
+                nextQuestion(7, question, questionHandler);
             }
         });
 
     }
 
 
-    public void nextQuestion(final int score, final ItemQuestion question, final QuestionnaireActivity.Handler handler){
+    public void nextQuestion(final int score, final ItemQuestion question, final QuestionnaireActivity.QuestionHandler questionHandler){
         Thread thread = new Thread(){
             @Override
             public void run() {
@@ -93,7 +92,7 @@ public class QuestionSmiley {
         };
         thread.start();
 
-        handler.showNext();
+        questionHandler.showNext();
     }
 
 }

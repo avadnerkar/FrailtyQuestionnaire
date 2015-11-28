@@ -189,6 +189,13 @@
     <string name="a_great_deal">A great deal</string>
 
 
+    <string name="disclaimer">We are conducting a study about how aging affects ability to function in everyday life.  The study involves some simple tests of mobility and some questionnaires.  We are asking your permission for a person from the research team to visit you and explain the study to you.</string>
+    <string name="disclaimer1">I (nurse) have introduced the study to the patient</string>
+    <string name="disclaimer2">Yes, the patient has agreed to have someone from the research team contact them to explain the study. </string>
+    <string name="disclaimer_error">Please select the checkboxes</string>
+
+    <string name="partially">Partially</string>
+    <string name="completely">Completely</string>
     <string name="unable">Unable</string>
     <string name="needs_assistance">Needs assistance</string>
     <string name="fully_independent">Fully independent</string>
@@ -206,6 +213,11 @@
     <string name="much_depression">Much depression</string>
     <string name="much_anxiety">Much anxiety</string>
     <string name="much">Much</string>
+
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four_or_more">Four or more</string>
 
     <string name="next">NEXT</string>
 

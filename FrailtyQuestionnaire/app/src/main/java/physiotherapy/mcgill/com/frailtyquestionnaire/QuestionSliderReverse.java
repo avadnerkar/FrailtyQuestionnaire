@@ -13,7 +13,7 @@ import android.widget.TextView;
  */
 public class QuestionSliderReverse {
 
-    public QuestionSliderReverse(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionSliderReverse(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
@@ -53,7 +53,7 @@ public class QuestionSliderReverse {
                 };
                 thread.start();
 
-                handler.showNext();
+                questionHandler.showNext();
             }
         });
     }

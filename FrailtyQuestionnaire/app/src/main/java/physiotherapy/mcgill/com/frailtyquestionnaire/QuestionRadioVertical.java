@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class QuestionRadioVertical {
 
-    public QuestionRadioVertical(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionRadioVertical(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
@@ -62,7 +62,7 @@ public class QuestionRadioVertical {
                     h.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            handler.showNext();
+                            questionHandler.showNext();
                         }
                     }, 200);
 

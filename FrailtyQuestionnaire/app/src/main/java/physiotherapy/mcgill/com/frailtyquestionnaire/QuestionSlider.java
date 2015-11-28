@@ -13,7 +13,7 @@ import android.widget.TextView;
  */
 public class QuestionSlider {
 
-    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
@@ -53,7 +53,7 @@ public class QuestionSlider {
                 };
                 thread.start();
 
-                handler.showNext();
+                questionHandler.showNext();
             }
         });
     }

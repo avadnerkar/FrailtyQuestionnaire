@@ -12,15 +12,15 @@ import android.widget.TextView;
 /**
  * Created by Abhishek Vadnerkar on 15-11-04.
  */
-public class QuestionSliderReverseEdit {
+public class QuestionSliderEdit {
 
-    public QuestionSliderReverseEdit(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionSliderEdit(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_10_point_reverse_edit, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_10_point_edit, QuestionnaireActivity.containerLayout, true);
 
         final EditText title = (EditText) view.findViewById(R.id.title);
         title.setHint(question.title);
@@ -56,7 +56,7 @@ public class QuestionSliderReverseEdit {
                 };
                 thread.start();
 
-                handler.showNext();
+                questionHandler.showNext();
             }
         });
     }

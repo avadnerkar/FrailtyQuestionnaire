@@ -12,7 +12,7 @@ public class ItemQuestion {
     public String[] options;
     public Object[] dbValues;
     public enum QuestionType {
-        SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE, SLIDER_REVERSE, SLIDER_REVERSE_EDIT, PLUS_MINUS, SMILEY
+        TITLE, SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE, SLIDER_REVERSE, SLIDER_EDIT, PLUS_MINUS, SMILEY
     }
     public QuestionType questionType;
     public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String[] dbKey, String[] options, Object[] dbValues){

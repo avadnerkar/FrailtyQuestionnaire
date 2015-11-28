@@ -1,12 +1,10 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,7 +14,7 @@ import android.widget.TextView;
  */
 public class QuestionButtonFlexible {
 
-    public QuestionButtonFlexible(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.Handler handler){
+    public QuestionButtonFlexible(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
@@ -61,7 +59,7 @@ public class QuestionButtonFlexible {
                     };
                     thread.start();
 
-                    handler.showNext();
+                    questionHandler.showNext();
                 }
             });
 

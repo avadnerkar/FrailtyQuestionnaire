@@ -1,8 +1,10 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
@@ -112,13 +114,20 @@ public class QuestionnaireActivity extends AppCompatActivity
             AppUtils.showTwoButtonDialog(getResources().getString(R.string.skip_title), getResources().getString(R.string.not_applicable), getResources().getString(R.string.no_answer), this, new DialogTwoButton.ClickHandler() {
                 @Override
                 public void onPositiveClick() {
-                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
+
+                    if (DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
+                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
+
+                    }
                     nextQuestion();
                 }
 
                 @Override
                 public void onNegativeClick() {
-                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
+
+                    if (DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
+                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
+                    }
                     nextQuestion();
                 }
             });
@@ -134,29 +143,32 @@ public class QuestionnaireActivity extends AppCompatActivity
         ItemQuestion.QuestionType questionType = question.questionType;
 
         switch (questionType){
+            case TITLE:
+                new QuestionTitle(context, sectionNum, questionNum, questionHandler);
+                break;
             case SLIDER:
-                new QuestionSlider(context, sectionNum, questionNum, handler);
+                new QuestionSlider(context, sectionNum, questionNum, questionHandler);
                 break;
             case COMPLETION:
-                new QuestionCompleted(context, sectionNum, questionNum, handler);
+                new QuestionCompleted(context, sectionNum, questionNum, questionHandler);
                 break;
             case RADIO_VERTICAL:
-                new QuestionRadioVertical(context, sectionNum, questionNum, handler);
+                new QuestionRadioVertical(context, sectionNum, questionNum, questionHandler);
                 break;
             case BUTTON_FLEXIBLE:
-                new QuestionButtonFlexible(context, sectionNum, questionNum, handler);
+                new QuestionButtonFlexible(context, sectionNum, questionNum, questionHandler);
                 break;
             case SLIDER_REVERSE:
-                new QuestionSliderReverse(context, sectionNum, questionNum, handler);
+                new QuestionSliderReverse(context, sectionNum, questionNum, questionHandler);
                 break;
-            case SLIDER_REVERSE_EDIT:
-                new QuestionSliderReverseEdit(context, sectionNum, questionNum, handler);
+            case SLIDER_EDIT:
+                new QuestionSliderEdit(context, sectionNum, questionNum, questionHandler);
                 break;
             case PLUS_MINUS:
-                new QuestionPlusMinus(context, sectionNum, questionNum, handler);
+                new QuestionPlusMinus(context, sectionNum, questionNum, questionHandler);
                 break;
             case SMILEY:
-                new QuestionSmiley(context, sectionNum, questionNum, handler);
+                new QuestionSmiley(context, sectionNum, questionNum, questionHandler);
                 break;
         }
 
@@ -165,31 +177,55 @@ public class QuestionnaireActivity extends AppCompatActivity
     }
 
     public void nextQuestion(){
-        if (questionNumber < DataSource.sections.get(sectionNumber).questions.size()-1){
-            questionNumber = questionNumber + 1;
-            loadQuestion(sectionNumber, questionNumber);
-        } else if (sectionNumber < DataSource.sections.size()-1){
-            sectionNumber = sectionNumber + 1;
-            questionNumber = 0;
-            onNavigationDrawerItemSelected(sectionNumber);
-        } else {
-            //finish
-            finish();
-        }
+
+        ActivityIndicator.showProgressDialog((Activity) context);
+        Handler delayedHandler = new Handler();
+        delayedHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                if (questionNumber < DataSource.sections.get(sectionNumber).questions.size()-1){
+                    questionNumber = questionNumber + 1;
+                    loadQuestion(sectionNumber, questionNumber);
+                } else if (sectionNumber < DataSource.sections.size()-1){
+                    sectionNumber = sectionNumber + 1;
+                    questionNumber = 0;
+                    onNavigationDrawerItemSelected(sectionNumber);
+                } else {
+                    //finish
+                    finish();
+                }
+
+                ActivityIndicator.dismissProgressDialog();
+            }
+        }, 1000);
+
+
     }
 
     public void previousQuestion(){
-        if (questionNumber > 0){
-            questionNumber = questionNumber - 1;
-            loadQuestion(sectionNumber, questionNumber);
-        } else if (sectionNumber > 0){
-            sectionNumber = sectionNumber - 1;
-            onNavigationDrawerItemSelected(sectionNumber);
-            questionNumber = DataSource.sections.get(sectionNumber).questions.size() - 1;
-            loadQuestion(sectionNumber, questionNumber);
-        } else {
-            //Do nothing
-        }
+
+        ActivityIndicator.showProgressDialog((Activity) context);
+        Handler delayedHandler = new Handler();
+        delayedHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                if (questionNumber > 0){
+                    questionNumber = questionNumber - 1;
+                    loadQuestion(sectionNumber, questionNumber);
+                } else if (sectionNumber > 0){
+                    sectionNumber = sectionNumber - 1;
+                    onNavigationDrawerItemSelected(sectionNumber);
+                    questionNumber = DataSource.sections.get(sectionNumber).questions.size() - 1;
+                    loadQuestion(sectionNumber, questionNumber);
+                } else {
+                    //Do nothing
+                }
+
+                ActivityIndicator.dismissProgressDialog();
+            }
+        }, 1000);
     }
 
 
@@ -222,10 +258,11 @@ public class QuestionnaireActivity extends AppCompatActivity
     }
 
 
-    private Handler handler = new Handler() {
+    private QuestionHandler questionHandler = new QuestionHandler() {
         @Override
         public void showNext() {
             nextQuestion();
+
         }
 
         @Override
@@ -234,7 +271,7 @@ public class QuestionnaireActivity extends AppCompatActivity
         }
     };
 
-    public interface Handler{
+    public interface QuestionHandler {
         void showNext();
 
         void showPrevious();

@@ -41,8 +41,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/rainbow_background_reverse">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rainbow_background">
 
         <LinearLayout
             android:layout_width="match_parent"
