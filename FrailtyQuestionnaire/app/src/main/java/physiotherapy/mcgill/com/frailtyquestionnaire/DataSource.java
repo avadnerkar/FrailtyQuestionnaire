@@ -125,6 +125,15 @@ public class DataSource {
         urine.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.urine3), null, null, new String[]{"ICIQ3"}, new String[]{context.getString(R.string.a_great_deal), context.getString(R.string.not_at_all)}, null));
         ItemSection urineSection = new ItemSection(context.getString(R.string.urine), urine);
 
+        ArrayList<ItemQuestion> euro = new ArrayList<>();
+        euro.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.euro), context.getString(R.string.euroDescription), null, null, null, null));
+        euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro1), null, null, new String[]{"EURO1"}, new String[]{context.getString(R.string.euro1_1), context.getString(R.string.euro1_2), context.getString(R.string.euro1_3)}, new Integer[]{2,1,0}));
+        euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro2), null, null, new String[]{"EURO2"}, new String[]{context.getString(R.string.euro2_1), context.getString(R.string.euro2_2), context.getString(R.string.euro2_3)}, new Integer[]{2,1,0}));
+        euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro3), null, null, new String[]{"EURO3"}, new String[]{context.getString(R.string.euro3_1), context.getString(R.string.euro3_2), context.getString(R.string.euro3_3)}, new Integer[]{2,1,0}));
+        euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro4), null, null, new String[]{"EURO4"}, new String[]{context.getString(R.string.euro4_1), context.getString(R.string.euro4_2), context.getString(R.string.euro4_3)}, new Integer[]{2,1,0}));
+        euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro5), null, null, new String[]{"EURO5"}, new String[]{context.getString(R.string.euro5_1), context.getString(R.string.euro5_2), context.getString(R.string.euro5_3)}, new Integer[]{2,1,0}));
+        ItemSection euroSection = new ItemSection(context.getString(R.string.finish), euro);
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         ItemSection completionSection = new ItemSection(context.getString(R.string.finish), completion);
@@ -142,6 +151,7 @@ public class DataSource {
         sections.add(walkingSection);
         sections.add(dizzySection);
         sections.add(urineSection);
+        sections.add(euroSection);
         sections.add(completionSection);
 
     }

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by Abhishek Vadnerkar on 15-11-14.
  */
@@ -21,6 +23,13 @@ public class QuestionTitle {
 
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);
+
+        TextView description = (TextView) view.findViewById(R.id.description);
+        if (question.subtitle == null){
+            description.setVisibility(View.GONE);
+        } else {
+            description.setText(question.subtitle);
+        }
 
 
         Button button = (Button) view.findViewById(R.id.button_next);

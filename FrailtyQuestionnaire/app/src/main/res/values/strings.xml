@@ -16,9 +16,11 @@
     <string name="start">START</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
-    <string name="hospital_id">Hospital ID</string>
+    <string name="evaluator">Evaluator</string>
+    <string name="subject_id">Subject ID</string>
     <string name="load_previous">LOAD PREVIOUS</string>
     <string name="or">OR</string>
+    <string name="error_id">Please enter a Subject ID</string>
 
 
     <string name="rnl">RNL</string>
@@ -184,6 +186,30 @@
     <string name="urine2_2">A small amount</string>
     <string name="urine2_3">A moderate amount</string>
     <string name="urine2_4">A large amount</string>
+
+    <string name="euro">EURO-QOL</string>
+    <string name="euroDescription">Please indicate which statement best describes your own health state today</string>
+    <string name="euro1">Mobility</string>
+    <string name="euro2">Self-Care</string>
+    <string name="euro3">Usual Activities (e.g. work, study, housework, family or leisure activities)</string>
+    <string name="euro4">Pain/Discomfort</string>
+    <string name="euro5">Anxiety/Depression</string>
+
+    <string name="euro1-1">I have no problems in walking about</string>
+    <string name="euro1-2">I have some problems in walking about</string>
+    <string name="euro1-3">I am confined to bed</string>
+    <string name="euro2-1">I have no problems with self-care</string>
+    <string name="euro2-2">I have some problems washing or dressing myself</string>
+    <string name="euro2-3">I am unable to wash or dress myself</string>
+    <string name="euro3-1">I have no problems with performing my usual activities</string>
+    <string name="euro3-2">I have some problems with performing my usual activities</string>
+    <string name="euro3-3">I am unable to perform my usual activities</string>
+    <string name="euro4-1">I have no pain or discomfort</string>
+    <string name="euro4-2">I have moderate pain or discomfort</string>
+    <string name="euro4-3">I have extreme pain or discomfort</string>
+    <string name="euro5-1">I am not anxious or depressed</string>
+    <string name="euro5-2">I am moderately anxious or depressed</string>
+    <string name="euro5-3">I am extremely anxious or depressed</string>
 
     <string name="not_at_all">Not at all</string>
     <string name="a_great_deal">A great deal</string>

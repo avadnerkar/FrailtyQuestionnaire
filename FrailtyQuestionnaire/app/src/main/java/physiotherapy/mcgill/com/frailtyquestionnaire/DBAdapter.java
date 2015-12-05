@@ -21,9 +21,9 @@ public class DBAdapter {
 
     // Common fields Fields
     public static final String KEY_ROWID = "_id";
-    public static final String KEY_FIRSTNAME = "FirstName";
-    public static final String KEY_LASTNAME = "LastName";
+    public static final String KEY_EVALUATOR = "Evaluator";
     public static final String KEY_HOSPITALID = "HospitalID";
+    public static final String KEY_DATE = "Date";
     public static final String KEY_LANGUAGE = "Language";
 
 
@@ -32,7 +32,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 16;
+    public static final int DATABASE_VERSION = 18;
 
 
     //Table Create Statements
@@ -57,9 +57,9 @@ public class DBAdapter {
         DATA_CREATE_SQL =
                 "create table " + DATA_TABLE
                         + " (" + KEY_ROWID + " integer primary key autoincrement, "
-                        + KEY_FIRSTNAME + " text, "
-                        + KEY_LASTNAME + " text, "
+                        + KEY_EVALUATOR + " text, "
                         + KEY_HOSPITALID + " text, "
+                        + KEY_DATE + " text, "
                         + KEY_LANGUAGE + " text, ";
 
         for (ItemSection section : DataSource.sections){
@@ -102,11 +102,11 @@ public class DBAdapter {
     // Add a new set of values to the database.
 
 
-    public long createData(String firstName, String lastName, String hospitalId, String language){
+    public long createData(String evaluator, String hospitalId, String date, String language){
         ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_FIRSTNAME, firstName);
-        initialValues.put(KEY_LASTNAME, lastName);
+        initialValues.put(KEY_EVALUATOR, evaluator);
         initialValues.put(KEY_HOSPITALID, hospitalId);
+        initialValues.put(KEY_DATE, date);
         initialValues.put(KEY_LANGUAGE, language);
 
         return db.insert(DATA_TABLE, null, initialValues);

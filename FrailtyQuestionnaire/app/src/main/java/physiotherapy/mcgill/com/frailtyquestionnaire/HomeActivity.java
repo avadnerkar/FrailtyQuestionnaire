@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class HomeActivity extends Activity {
@@ -33,13 +35,11 @@ public class HomeActivity extends Activity {
         myDb = new DBAdapter(this);
         myDb.open();
 
-        EditText editFirstName = (EditText) findViewById(R.id.first_name);
-        EditText editLastName = (EditText) findViewById(R.id.last_name);
-        EditText editHospitalID = (EditText) findViewById(R.id.hospital_id);
+        EditText editEvaluator = (EditText) findViewById(R.id.evaluator);
+        EditText editSubjectId = (EditText) findViewById(R.id.subject_id);
 
-        editFirstName.setText("");
-        editLastName.setText("");
-        editHospitalID.setText("");
+        editEvaluator.setText("");
+        editSubjectId.setText("");
 
         RadioGroup rg = (RadioGroup) findViewById(R.id.language);
         rg.check(R.id.english);
@@ -76,18 +76,22 @@ public class HomeActivity extends Activity {
 
     public void startQuestionnaire(View view) {
 
+        EditText editEvaluator = (EditText) findViewById(R.id.evaluator);
+        EditText editSubjectId = (EditText) findViewById(R.id.subject_id);
+
+        final String evaluator = editEvaluator.getText().toString();
+        final String subjectId = editSubjectId.getText().toString();
+
+        if (subjectId.equals("")){
+            AppUtils.showPopup(getString(R.string.error_id), context);
+            return;
+        }
+
+
+
         DialogDisclaimer.ClickHandler handler = new DialogDisclaimer.ClickHandler() {
             @Override
             public void onSuccess() {
-                EditText editFirstName = (EditText) findViewById(R.id.first_name);
-                EditText editLastName = (EditText) findViewById(R.id.last_name);
-                EditText editHospitalID = (EditText) findViewById(R.id.hospital_id);
-
-                String firstName = editFirstName.getText().toString();
-                String lastName = editLastName.getText().toString();
-                String hospitalID = editHospitalID.getText().toString();
-
-
 
                 RadioGroup rg = (RadioGroup) findViewById(R.id.language);
                 String language;
@@ -100,7 +104,11 @@ public class HomeActivity extends Activity {
                     language = getString(R.string.french);
                 }
 
-                currentPatientID = myDb.createData(firstName, lastName, hospitalID, language);
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                String formattedDate = df.format(c.getTime());
+
+                currentPatientID = myDb.createData(evaluator, subjectId, formattedDate, language);
 
                 Intent intent = new Intent(context, QuestionnaireActivity.class);
                 startActivity(intent);

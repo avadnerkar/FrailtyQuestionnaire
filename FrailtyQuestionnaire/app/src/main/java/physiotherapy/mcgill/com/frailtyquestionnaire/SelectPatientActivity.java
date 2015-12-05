@@ -47,11 +47,9 @@ public class SelectPatientActivity extends AppCompatActivity {
                 // Process the data:
                 int id = cursor.getInt(cursor.getColumnIndex(DBAdapter.KEY_ROWID));
                 String hospitalID = cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_HOSPITALID))!=null ? cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_HOSPITALID)): "";
-                String firstName = cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_FIRSTNAME)) != null ? cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_FIRSTNAME)) : "";
-                String lastName = cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_LASTNAME)) != null ? cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_LASTNAME)) : "";
 
                 IDarray[cursor.getPosition()] = id;
-                items.add(hospitalID + " " + firstName + " " + lastName);
+                items.add(hospitalID);
 
             } while(cursor.moveToNext());
         }

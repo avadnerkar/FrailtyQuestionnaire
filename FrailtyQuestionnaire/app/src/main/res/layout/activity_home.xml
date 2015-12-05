@@ -61,11 +61,12 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/first_name"
-        android:id="@+id/first_name"
+        android:hint="@string/evaluator"
+        android:id="@+id/evaluator"
         android:textSize="@dimen/text_medium"
         android:inputType="text"
         android:imeOptions="actionNext"
@@ -74,18 +75,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/last_name"
-        android:id="@+id/last_name"
-        android:textSize="@dimen/text_medium"
-        android:inputType="text"
-        android:imeOptions="actionNext"
-        android:textColor="@color/White"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hospital_id"
-        android:id="@+id/hospital_id"
+        android:hint="@string/subject_id"
+        android:id="@+id/subject_id"
         android:textSize="@dimen/text_medium"
         android:inputType="number"
         android:imeOptions="actionDone"
