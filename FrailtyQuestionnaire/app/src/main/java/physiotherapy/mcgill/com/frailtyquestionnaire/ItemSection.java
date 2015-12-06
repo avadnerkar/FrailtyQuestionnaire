@@ -9,6 +9,9 @@ public class ItemSection {
 
     public String title;
     public ArrayList<ItemQuestion> questions;
+    public enum Questionnaire{
+        NURSE, EVALUATOR, PHYSICAL
+    }
 
     public ItemSection(String title, ArrayList<ItemQuestion> questions){
         this.title = title;

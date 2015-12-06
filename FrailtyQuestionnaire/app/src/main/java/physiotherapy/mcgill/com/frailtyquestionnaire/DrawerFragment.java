@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,7 @@ public class DrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+    private ArrayList<ItemSection> sectionList;
 
     public DrawerFragment() {
     }
@@ -70,6 +72,7 @@ public class DrawerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        sectionList = QuestionnaireActivity.sections;
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -103,11 +106,11 @@ public class DrawerFragment extends Fragment {
             }
         });
         ArrayList<String> sections = new ArrayList<>();
-        for (ItemSection section : DataSource.sections){
+        for (ItemSection section : sectionList){
             sections.add(section.title);
         }
         String[] sectionsArray = sections.toArray(new String[sections.size()]);
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
+        mDrawerListView.setAdapter(new ArrayAdapter<>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,

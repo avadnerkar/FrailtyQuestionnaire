@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Abhishek on 9/07/2015.
@@ -34,6 +35,7 @@ public class DialogTwoButton extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_all_two_button);
+
         positiveButton = (Button) findViewById(R.id.dialog_ok);
         positiveButton.setOnClickListener(new View.OnClickListener() {
             @Override

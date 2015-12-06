@@ -9,17 +9,16 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 /**
- * Created by Abhishek Vadnerkar on 15-10-31.
+ * Created by Abhishek Vadnerkar on 15-12-05.
  */
-public class QuestionSlider {
-
-    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
+public class QuestionSlider100 {
+    public QuestionSlider100(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = QuestionnaireActivity.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_10_point, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_100_point, QuestionnaireActivity.containerLayout, true);
 
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);
@@ -57,5 +56,4 @@ public class QuestionSlider {
             }
         });
     }
-
 }

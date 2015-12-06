@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Abhishek Vadnerkar on 15-10-29.
@@ -11,23 +12,26 @@ import java.util.ArrayList;
 public class DataSource {
 
     public static ArrayList<ItemSection> sections;
-
+    public static ItemSection barthelSection;
+    public static ItemSection oarsSection;
+    public static ItemSection gdsSection;
+    public static ItemSection vahsSection;
+    public static ItemSection fallSection;
+    public static ItemSection moodSection;
+    public static ItemSection appetiteSection;
+    public static ItemSection drivingSection;
+    public static ItemSection walkingSection;
+    public static ItemSection dizzySection;
+    public static ItemSection urineSection;
+    public static ItemSection euroSection;
+    public static ItemSection healthStateSection;
+    public static ItemSection completionSection;
+    public static ItemSection rnlEffortSection;
+    public static ItemSection rnlRestrictionSection;
+    public static ItemSection raschSection;
+    public static ItemSection rand36Section;
+    public static ItemSection abcSection;
     public static void init(Context context){
-
-        ArrayList<ItemQuestion> rnlQuestions = new ArrayList<>();
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.rnl), null, null, null, null, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl1), null, new String[]{"RNL1"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl2), null, new String[]{"RNL2"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl3), null, new String[]{"RNL3"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl4), null, new String[]{"RNL4"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl5), null, new String[]{"RNL5"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl6), null, new String[]{"RNL6"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl7), null, new String[]{"RNL7"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl8), null, new String[]{"RNL8"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl9), null, new String[]{"RNL9"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl10), null, new String[]{"RNL10"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        rnlQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl11), null, new String[]{"RNL11"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
-        ItemSection rnlSection = new ItemSection(context.getString(R.string.rnl), rnlQuestions);
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
         barthelQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.barthel), null, null, null, null, null));
@@ -42,7 +46,7 @@ public class DataSource {
         barthelQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.barthel9), null, null, new String[]{"Barthel9"}, new String[]{context.getString(R.string.unable), context.getString(R.string.needs_assistance), context.getString(R.string.fully_independent)}, new Integer[]{0, 10, 15}));
         barthelQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.barthel10), null, null, new String[]{"Barthel10"}, new String[]{context.getString(R.string.unable), context.getString(R.string.needs_assistance), context.getString(R.string.fully_independent)}, new Integer[]{0, 5, 10}));
         barthelQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.barthel11), null, null, new String[]{"Barthel11"}, new String[]{context.getString(R.string.unable), context.getString(R.string.needs_assistance), context.getString(R.string.fully_independent)}, new Integer[]{0, 0, 10}));
-        ItemSection barthelSection = new ItemSection(context.getString(R.string.barthel), barthelQuestions);
+        barthelSection = new ItemSection(context.getString(R.string.barthel), barthelQuestions);
 
         ArrayList<ItemQuestion> oarsQuestions = new ArrayList<>();
         oarsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.oars), null, null, null, null, null));
@@ -53,7 +57,7 @@ public class DataSource {
         oarsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.oars5), null, null, new String[]{"OARS5"}, new String[]{context.getString(R.string.oars5_2), context.getString(R.string.oars5_1), context.getString(R.string.oars5_0)}, new Integer[]{2,1,0}));
         oarsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.oars6), null, null, new String[]{"OARS6"}, new String[]{context.getString(R.string.oars6_2), context.getString(R.string.oars6_1), context.getString(R.string.oars6_0)}, new Integer[]{2,1,0}));
         oarsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.oars7), null, null, new String[]{"OARS7"}, new String[]{context.getString(R.string.oars7_2), context.getString(R.string.oars7_1), context.getString(R.string.oars7_0)}, new Integer[]{2,1,0}));
-        ItemSection oarsSection = new ItemSection(context.getString(R.string.oars), oarsQuestions);
+        oarsSection = new ItemSection(context.getString(R.string.oars), oarsQuestions);
 
         ArrayList<ItemQuestion> gdsQuestions = new ArrayList<>();
         gdsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.gds), null, null, null, null, null));
@@ -65,7 +69,7 @@ public class DataSource {
         gdsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.gds6), null, null, new String[]{"GDS6"}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}));
         gdsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.gds7), null, null, new String[]{"GDS7"}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}));
         gdsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.gds8), null, null, new String[]{"GDS8"}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}));
-        ItemSection gdsSection = new ItemSection(context.getString(R.string.gds), gdsQuestions);
+        gdsSection = new ItemSection(context.getString(R.string.gds), gdsQuestions);
 
         ArrayList<ItemQuestion> vahsQuestions = new ArrayList<>();
         vahsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.vahs), null, null, null, null, null));
@@ -77,13 +81,13 @@ public class DataSource {
         vahsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.vahs6), null, null, new String[]{"VAHS6"}, new String[]{context.getString(R.string.much_depression), context.getString(R.string.none)}, null));
         vahsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.vahs7), null, null, new String[]{"VAHS7"}, new String[]{context.getString(R.string.much_anxiety), context.getString(R.string.none)}, null));
         vahsQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_EDIT, context.getString(R.string.vahs8), null, null, new String[]{"VAHS8", "VAHS_OTHER"}, new String[]{context.getString(R.string.much), context.getString(R.string.none)}, null));
-        ItemSection vahsSection = new ItemSection(context.getString(R.string.vahs), vahsQuestions);
+        vahsSection = new ItemSection(context.getString(R.string.vahs), vahsQuestions);
 
         ArrayList<ItemQuestion> falls = new ArrayList<>();
         falls.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.falls), null, null, null, null, null));
         falls.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.falls1), null, null, new String[]{"NumFalls"}, new String[]{context.getString(R.string.one), context.getString(R.string.two), context.getString(R.string.three), context.getString(R.string.four_or_more)}, new String[]{"1", "2", "3", "4 or more"}));
         falls.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.falls2), null, null, new String[]{"FallOutcome"}, new String[]{context.getString(R.string.injury_treatment), context.getString(R.string.injury_without_treatment), context.getString(R.string.no_injury), context.getString(R.string.no_falls)}, new String[]{"InjuryWithTreatment", "InjuryWithoutTreatment", "NoInjury", "NoFalls"}));
-        ItemSection fallSection = new ItemSection(context.getString(R.string.falls), falls);
+        fallSection = new ItemSection(context.getString(R.string.falls), falls);
 
         ArrayList<ItemQuestion> mood = new ArrayList<>();
         mood.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.moodTitle), null, null, null, null, null));
@@ -91,7 +95,7 @@ public class DataSource {
         mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.mood), null, null, new String[]{"Mood"}, null, null));
         mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.pain), null, null, new String[]{"Pain"}, null, null));
         mood.add(new ItemQuestion(ItemQuestion.QuestionType.SMILEY, context.getString(R.string.fatigue), null, null, new String[]{"Fatigue"}, null, null));
-        ItemSection moodSection = new ItemSection(context.getString(R.string.moodTitle), mood);
+        moodSection = new ItemSection(context.getString(R.string.moodTitle), mood);
 
 
         ArrayList<ItemQuestion> appetite = new ArrayList<>();
@@ -100,30 +104,30 @@ public class DataSource {
         appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite2), null, null, new String[]{"Appetite2"}, new String[]{context.getString(R.string.appetite2_1), context.getString(R.string.appetite2_2), context.getString(R.string.appetite2_3), context.getString(R.string.appetite2_4), context.getString(R.string.appetite2_5)}, null));
         appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite3), null, null, new String[]{"Appetite3"}, new String[]{context.getString(R.string.very_bad), context.getString(R.string.bad), context.getString(R.string.average), context.getString(R.string.good), context.getString(R.string.very_good)}, null));
         appetite.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.appetite4), null, null, new String[]{"Appetite4"}, new String[]{context.getString(R.string.meals0), context.getString(R.string.meals1), context.getString(R.string.meals2), context.getString(R.string.meals3), context.getString(R.string.meals4)}, null));
-        ItemSection appetiteSection = new ItemSection(context.getString(R.string.appetite), appetite);
+        appetiteSection = new ItemSection(context.getString(R.string.appetite), appetite);
 
         ArrayList<ItemQuestion> driving = new ArrayList<>();
         driving.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.driving), null, null, null, null, null));
         driving.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.driving1), null, null, new String[]{"Driving1"}, new String[]{context.getString(R.string.driving1_1), context.getString(R.string.driving1_2), context.getString(R.string.driving1_3), context.getString(R.string.driving1_4)}, null));
-        ItemSection drivingSection = new ItemSection(context.getString(R.string.driving), driving);
+        drivingSection = new ItemSection(context.getString(R.string.driving), driving);
 
         ArrayList<ItemQuestion> walking = new ArrayList<>();
         walking.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.walking), null, null, null, null, null));
         walking.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.walking), null, null, new String[]{"Walking1"}, new String[]{context.getString(R.string.walking1_1), context.getString(R.string.walking1_2), context.getString(R.string.walking1_3), context.getString(R.string.walking1_4), context.getString(R.string.walking1_5), context.getString(R.string.walking1_6)}, null));
-        ItemSection walkingSection = new ItemSection(context.getString(R.string.walking), walking);
+        walkingSection = new ItemSection(context.getString(R.string.walking), walking);
 
         ArrayList<ItemQuestion> dizzy = new ArrayList<>();
         dizzy.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.dizzy), null, null, null, null, null));
         dizzy.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.dizzy1), null, null, new String[]{"Dizzy1"}, new String[]{context.getString(R.string.yes), context.getString(R.string.no)}, null));
         dizzy.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.dizzy2), null, null, new String[]{"Dizzy2"}, new String[]{context.getString(R.string.dizzy2_1), context.getString(R.string.dizzy2_2), context.getString(R.string.dizzy2_3), context.getString(R.string.dizzy2_4), context.getString(R.string.dizzy2_5)}, null));
-        ItemSection dizzySection = new ItemSection(context.getString(R.string.dizzy), dizzy);
+        dizzySection = new ItemSection(context.getString(R.string.dizzy), dizzy);
 
         ArrayList<ItemQuestion> urine = new ArrayList<>();
         urine.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.urine), null, null, null, null, null));
         urine.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.urine1), null, null, new String[]{"ICIQ1"}, new String[]{context.getString(R.string.urine1_1), context.getString(R.string.urine1_2), context.getString(R.string.urine1_3), context.getString(R.string.urine1_4), context.getString(R.string.urine1_5), context.getString(R.string.urine1_6)}, new Integer[]{0, 1, 2, 3, 4, 5}));
         urine.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.urine2), null, null, new String[]{"ICIQ2"}, new String[]{context.getString(R.string.urine2_1), context.getString(R.string.urine2_2), context.getString(R.string.urine2_3), context.getString(R.string.urine2_4)}, new Integer[]{0, 2, 4, 6}));
         urine.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.urine3), null, null, new String[]{"ICIQ3"}, new String[]{context.getString(R.string.a_great_deal), context.getString(R.string.not_at_all)}, null));
-        ItemSection urineSection = new ItemSection(context.getString(R.string.urine), urine);
+        urineSection = new ItemSection(context.getString(R.string.urine), urine);
 
         ArrayList<ItemQuestion> euro = new ArrayList<>();
         euro.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.euro), context.getString(R.string.euroDescription), null, null, null, null));
@@ -132,15 +136,94 @@ public class DataSource {
         euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro3), null, null, new String[]{"EURO3"}, new String[]{context.getString(R.string.euro3_1), context.getString(R.string.euro3_2), context.getString(R.string.euro3_3)}, new Integer[]{2,1,0}));
         euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro4), null, null, new String[]{"EURO4"}, new String[]{context.getString(R.string.euro4_1), context.getString(R.string.euro4_2), context.getString(R.string.euro4_3)}, new Integer[]{2,1,0}));
         euro.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.euro5), null, null, new String[]{"EURO5"}, new String[]{context.getString(R.string.euro5_1), context.getString(R.string.euro5_2), context.getString(R.string.euro5_3)}, new Integer[]{2,1,0}));
-        ItemSection euroSection = new ItemSection(context.getString(R.string.finish), euro);
+        euroSection = new ItemSection(context.getString(R.string.euro), euro);
+
+        ArrayList<ItemQuestion> healthState = new ArrayList<>();
+        healthState.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE_LONG, context.getString(R.string.health_state), context.getString(R.string.health_state_description), null, null, null, null));
+        healthState.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100, context.getString(R.string.health_state_title), null, null, new String[]{"HealthState"}, new String[]{context.getString(R.string.health_state_worst), context.getString(R.string.health_state_best)}, null));
+        healthStateSection = new ItemSection(context.getString(R.string.health_state), healthState);
+
+        ArrayList<ItemQuestion> rnlEffortQuestions = new ArrayList<>();
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE_LONG, context.getString(R.string.rnl), context.getString(R.string.rnlDescription), null, null, null, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl1), null, new String[]{"RNLEffort1"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl2), null, new String[]{"RNLEffort2"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl3), null, new String[]{"RNLEffort3"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl4), null, new String[]{"RNLEffort4"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl5), null, new String[]{"RNLEffort5"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl6), null, new String[]{"RNLEffort6"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl7), null, new String[]{"RNLEffort7"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl8), null, new String[]{"RNLEffort8"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl9), null, new String[]{"RNLEffort9"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl10), null, new String[]{"RNLEffort10"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlTitle), context.getString(R.string.rnl11), null, new String[]{"RNLEffort11"}, new String[]{context.getString(R.string.rnlOption1), context.getString(R.string.rnlOption2)}, null));
+        rnlEffortSection = new ItemSection(context.getString(R.string.rnl), rnlEffortQuestions);
+
+        ArrayList<ItemQuestion> rnlRestrictionQuestions = new ArrayList<>();
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE_LONG, context.getString(R.string.rnlRestriction), context.getString(R.string.rnlRestrictionDescription), null, null, null, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction1), null, new String[]{"RNLRestriction1"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction2), null, new String[]{"RNLRestriction2"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction3), null, new String[]{"RNLRestriction3"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction4), null, new String[]{"RNLRestriction4"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction5), null, new String[]{"RNLRestriction5"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction6), null, new String[]{"RNLRestriction6"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction7), null, new String[]{"RNLRestriction7"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction8), null, new String[]{"RNLRestriction8"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction9), null, new String[]{"RNLRestriction9"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction10), null, new String[]{"RNLRestriction10"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER, context.getString(R.string.rnlRestrictionTitle), context.getString(R.string.rnlRestriction11), null, new String[]{"RNLRestriction11"}, new String[]{context.getString(R.string.rnlRestrictionOption1), context.getString(R.string.rnlRestrictionOption2)}, null));
+        rnlRestrictionSection = new ItemSection(context.getString(R.string.rnlRestriction), rnlRestrictionQuestions);
+
+        ArrayList<ItemQuestion> rasch = new ArrayList<>();
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.rasch), null, null, null, null, null));
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rasch1), null, null, new String[]{"RaschMotivation1"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.slightly), context.getString(R.string.some), context.getString(R.string.a_lot)}, new Integer[]{0,1,2,3}));
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rasch2), null, null, new String[]{"RaschMotivation2"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.slightly), context.getString(R.string.some), context.getString(R.string.a_lot)}, new Integer[]{0,1,2,3}));
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rasch3), null, null, new String[]{"RaschMotivation3"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.slightly), context.getString(R.string.some), context.getString(R.string.a_lot)}, new Integer[]{0,1,2,3}));
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rasch4), null, null, new String[]{"RaschMotivation4"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.slightly), context.getString(R.string.some), context.getString(R.string.a_lot)}, new Integer[]{0,1,2,3}));
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rasch5), null, null, new String[]{"RaschMotivation5"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.slightly), context.getString(R.string.some), context.getString(R.string.a_lot)}, new Integer[]{0,1,2,3}));
+        rasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rasch6), null, null, new String[]{"RaschMotivation6"}, new String[]{context.getString(R.string.not_at_all), context.getString(R.string.slightly), context.getString(R.string.some), context.getString(R.string.a_lot)}, new Integer[]{0,1,2,3}));
+        raschSection = new ItemSection(context.getString(R.string.rasch), rasch);
+
+        ArrayList<ItemQuestion> rand36 = new ArrayList<>();
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.rand36), context.getString(R.string.rand36Description), null, null, null, null));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_1), null, null, new String[]{"Rand36_1"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_2), null, null, new String[]{"Rand36_2"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_3), null, null, new String[]{"Rand36_3"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_4), null, null, new String[]{"Rand36_4"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_5), null, null, new String[]{"Rand36_5"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_6), null, null, new String[]{"Rand36_6"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_7), null, null, new String[]{"Rand36_7"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_8), null, null, new String[]{"Rand36_8"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_9), null, null, new String[]{"Rand36_9"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.rand36_10), null, null, new String[]{"Rand36_10"}, new String[]{context.getString(R.string.limited_a_lot), context.getString(R.string.limited_a_little), context.getString(R.string.not_limited_at_all)}, new Integer[]{1,2,3}));
+        rand36Section = new ItemSection(context.getString(R.string.rand36), rand36);
+
+        ArrayList<ItemQuestion> abc = new ArrayList<>();
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE_LONG, context.getString(R.string.abc), context.getString(R.string.abcDescription), null, null, null, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc1), null, new String[]{"ABC1"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc2), null, new String[]{"ABC2"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc3), null, new String[]{"ABC3"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc4), null, new String[]{"ABC4"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc5), null, new String[]{"ABC5"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc6), null, new String[]{"ABC6"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc7), null, new String[]{"ABC7"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc8), null, new String[]{"ABC8"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc9), null, new String[]{"ABC9"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc10), null, new String[]{"ABC10"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc11), null, new String[]{"ABC11"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc12), null, new String[]{"ABC12"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc13), null, new String[]{"ABC13"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc14), null, new String[]{"ABC14"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc15), null, new String[]{"ABC15"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc16), null, new String[]{"ABC16"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
+        abcSection = new ItemSection(context.getString(R.string.abc), abc);
+
 
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
-        ItemSection completionSection = new ItemSection(context.getString(R.string.finish), completion);
+        completionSection = new ItemSection(context.getString(R.string.finish), completion);
 
         sections = new ArrayList<>();
         sections.add(fallSection);
-        sections.add(rnlSection);
         sections.add(barthelSection);
         sections.add(oarsSection);
         sections.add(gdsSection);
@@ -152,8 +235,54 @@ public class DataSource {
         sections.add(dizzySection);
         sections.add(urineSection);
         sections.add(euroSection);
+        sections.add(healthStateSection);
+        sections.add(rnlEffortSection);
+        sections.add(rnlRestrictionSection);
+        sections.add(raschSection);
+        sections.add(rand36Section);
+        sections.add(abcSection);
         sections.add(completionSection);
 
+    }
+
+    public static ArrayList<ItemSection> nurseSections(){
+
+        ArrayList<ItemSection> chosenSections = new ArrayList<>();
+        chosenSections.add(fallSection);
+        chosenSections.add(barthelSection);
+        chosenSections.add(oarsSection);
+        chosenSections.add(gdsSection);
+        chosenSections.add(vahsSection);
+        chosenSections.add(moodSection);
+        chosenSections.add(appetiteSection);
+        chosenSections.add(drivingSection);
+        chosenSections.add(walkingSection);
+        chosenSections.add(dizzySection);
+        chosenSections.add(urineSection);
+        chosenSections.add(completionSection);
+        return chosenSections;
+    }
+
+    public static ArrayList<ItemSection> evaluatorSections(){
+
+        ArrayList<ItemSection> chosenSections = new ArrayList<>();
+        chosenSections.add(euroSection);
+        chosenSections.add(healthStateSection);
+        chosenSections.add(rnlEffortSection);
+        chosenSections.add(rnlRestrictionSection);
+        chosenSections.add(raschSection);
+        chosenSections.add(rand36Section);
+        chosenSections.add(vahsSection);
+        chosenSections.add(abcSection);
+        chosenSections.add(completionSection);
+        return chosenSections;
+    }
+
+    public static ArrayList<ItemSection> physicalSections(){
+
+        ArrayList<ItemSection> chosenSections = new ArrayList<>();
+
+        return chosenSections;
     }
 
 }

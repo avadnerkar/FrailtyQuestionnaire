@@ -16,7 +16,7 @@ public class QuestionSliderReverse {
     public QuestionSliderReverse(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
-        final ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
+        final ItemQuestion question = QuestionnaireActivity.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.cell_10_point_reverse, QuestionnaireActivity.containerLayout, true);

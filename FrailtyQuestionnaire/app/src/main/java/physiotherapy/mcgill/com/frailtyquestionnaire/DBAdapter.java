@@ -32,7 +32,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 18;
+    public static final int DATABASE_VERSION = 25;
 
 
     //Table Create Statements
@@ -139,6 +139,16 @@ public class DBAdapter {
         }
         return c;
     }
+
+    public Cursor getColumns(String[] keys){
+        String where = null;
+        Cursor c = db.query(true, DATA_TABLE, keys, where, null, null, null, null, null);
+        if (c !=null){
+            c.moveToFirst();
+        }
+        return c;
+    }
+
 
     // Get a specific row (by rowId)
     public Cursor getRowData(long rowId) {

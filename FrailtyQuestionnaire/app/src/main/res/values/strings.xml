@@ -23,7 +23,8 @@
     <string name="error_id">Please enter a Subject ID</string>
 
 
-    <string name="rnl">RNL</string>
+    <string name="rnl">RNL - Effort</string>
+    <string name="rnlDescription">We would like to know how much effort you need in doing certain activities.  For each of the following questions, please choose the number that corresponds to the effort that you need to do the following activities.</string>
     <string name="rnlTitle">How much effort is it for you to:</string>
     <string name="rnlOption1">Extreme effort</string>
     <string name="rnlOption2">No effort at all</string>
@@ -38,6 +39,24 @@
     <string name="rnl9">Deal with life events when they happen?</string>
     <string name="rnl10">Be comfortable with your personal relationships?</string>
     <string name="rnl11">Be comfortable with yourself when you are in the company of others?</string>
+
+    <string name="rnlRestriction">RNL - Restriction</string>
+    <string name="rnlRestrictionTitle">Are you restricted in:</string>
+    <string name="rnlRestrictionDescription">We would like to know how restricted you feel in doing certain activities.  For each of the following questions, please choose the number that corresponds to the amount of restriction that you feel in doing the following activities.</string>
+    <string name="rnlRestrictionOption1">Completely restricted</string>
+    <string name="rnlRestrictionOption2">Not at all restricted</string>
+    <string name="rnlRestriction1">Meeting your self-care needs?</string>
+    <string name="rnlRestriction2">Moving around your living quarters?</string>
+    <string name="rnlRestriction3">Participating in social activities with family and/or friends?</string>
+    <string name="rnlRestriction4">Participating in recreational activities? (sports, hobbies, cards, etc.)</string>
+    <string name="rnlRestriction5">Spending your day doing an activity that is important to you?</string>
+    <string name="rnlRestriction6">Assuming a role in your family?</string>
+    <string name="rnlRestriction7">Moving around your community? (shopping, banking, etc.)</string>
+    <string name="rnlRestriction8">Taking trips out of town?</string>
+    <string name="rnlRestriction9">Dealing with life events when they happen?</string>
+    <string name="rnlRestriction10">Feeling comfortable with your personal relationships?</string>
+    <string name="rnlRestriction11">Feeling comfortable with yourself when you are in the company of others?</string>
+
 
     <string name="barthel">Barthel</string>
     <string name="barthel1">If there was no one to help you with your feeding, could you do it alone?</string>
@@ -195,24 +214,79 @@
     <string name="euro4">Pain/Discomfort</string>
     <string name="euro5">Anxiety/Depression</string>
 
-    <string name="euro1-1">I have no problems in walking about</string>
-    <string name="euro1-2">I have some problems in walking about</string>
-    <string name="euro1-3">I am confined to bed</string>
-    <string name="euro2-1">I have no problems with self-care</string>
-    <string name="euro2-2">I have some problems washing or dressing myself</string>
-    <string name="euro2-3">I am unable to wash or dress myself</string>
-    <string name="euro3-1">I have no problems with performing my usual activities</string>
-    <string name="euro3-2">I have some problems with performing my usual activities</string>
-    <string name="euro3-3">I am unable to perform my usual activities</string>
-    <string name="euro4-1">I have no pain or discomfort</string>
-    <string name="euro4-2">I have moderate pain or discomfort</string>
-    <string name="euro4-3">I have extreme pain or discomfort</string>
-    <string name="euro5-1">I am not anxious or depressed</string>
-    <string name="euro5-2">I am moderately anxious or depressed</string>
-    <string name="euro5-3">I am extremely anxious or depressed</string>
+    <string name="euro1_1">I have no problems in walking about</string>
+    <string name="euro1_2">I have some problems in walking about</string>
+    <string name="euro1_3">I am confined to bed</string>
+    <string name="euro2_1">I have no problems with self-care</string>
+    <string name="euro2_2">I have some problems washing or dressing myself</string>
+    <string name="euro2_3">I am unable to wash or dress myself</string>
+    <string name="euro3_1">I have no problems with performing my usual activities</string>
+    <string name="euro3_2">I have some problems with performing my usual activities</string>
+    <string name="euro3_3">I am unable to perform my usual activities</string>
+    <string name="euro4_1">I have no pain or discomfort</string>
+    <string name="euro4_2">I have moderate pain or discomfort</string>
+    <string name="euro4_3">I have extreme pain or discomfort</string>
+    <string name="euro5_1">I am not anxious or depressed</string>
+    <string name="euro5_2">I am moderately anxious or depressed</string>
+    <string name="euro5_3">I am extremely anxious or depressed</string>
+
+    <string name="health_state">Health state</string>
+    <string name="health_state_description">To help people say how good or bad a health state is, we have drawn a scale on which the best state you can imagine is marked by 100 and the worst state you can imagine is marked by 0. \n\n We would like you to indicate on this scale how good or bad is your own health today, in your opinion. Please do this by selecting a point on the scale which indicates how good or bad your current health state is.</string>
+    <string name="health_state_title">Your own health state today</string>
+    <string name="health_state_worst">Worst imaginable health state</string>
+    <string name="health_state_best">Best imaginable health state</string>
+
+    <string name="rasch">Rasch Motivation</string>
+    <string name="rasch1">Are you always looking for something to do?</string>
+    <string name="rasch2">Do you have energy for daily activities?</string>
+    <string name="rasch3">Are you interested in learning new things?</string>
+    <string name="rasch4">Does anything interest you?</string>
+    <string name="rasch5">Do you have motivation?</string>
+    <string name="rasch6">Do you put much effort into things?</string>
+
+    <string name="rand36">Physical Functioning - Rand 36</string>
+    <string name="rand36Description">The following items are about activities you might do during a typical day.  Does your health now limit you in these activities? If so, how much?</string>
+    <string name="rand36_1">Vigorous activities, such as running, lifting heavy objects, participating in strenuous sports</string>
+    <string name="rand36_2">Moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf</string>
+    <string name="rand36_3">Lifting or carrying groceries</string>
+    <string name="rand36_4">Climbing several flights of stairs</string>
+    <string name="rand36_5">Climbing one flight of stairs</string>
+    <string name="rand36_6">Bending, kneeling, or stooping</string>
+    <string name="rand36_7">Walking more than a kilometre</string>
+    <string name="rand36_8">Walking several blocks</string>
+    <string name="rand36_9">Walking one block</string>
+    <string name="rand36_10">Bathing or dressing yourself</string>
+
+    <string name="abc">ABC Scale</string>
+    <string name="abcDescription" formatted="false">For each of the following, please indicate your level of confidence in doing the activity without losing your balance or becoming unsteady by choosing one of the percentage points on the scale from 0% to 100%.  If you do not currently do the activity in question, try and imagine how confident you would be if you had to do the activity.  If you normally use a walking aid to do the activity or hold onto someone, rate your confidence as if you were using these supports.  If you have any questions about answering any of the items, please ask the administrator. \n\n For each of the following activities, please indicate your level of self-confidence by choosing a corresponding number from the rating scale</string>
+    <string name="abcTitle">How confident are you that you will not lose your balance and become unsteady when you:</string>
+    <string name="abc1">walk around the house?</string>
+    <string name="abc2">walk up or down stairs?</string>
+    <string name="abc3">bend over and pick up a slipper from the front of a closet floor?</string>
+    <string name="abc4">reach for a small can of a shelf at eye level?</string>
+    <string name="abc5">stand on your tip toes and reach for something above your head?</string>
+    <string name="abc6">stand on a chair and reach for something?</string>
+    <string name="abc7">sweep the floor?</string>
+    <string name="abc8">walk outside the house to a car parked in the driveway?</string>
+    <string name="abc9">get into or out of a car?</string>
+    <string name="abc10">walk across a parking lot to the mall?</string>
+    <string name="abc11">walk up or down a ramp?</string>
+    <string name="abc12">walk in a crowded mall where people rapidly walk past you?</string>
+    <string name="abc13">are bumped into by people as you walk through a mall?</string>
+    <string name="abc14">step onto or off of an escalator while holding onto a railing?</string>
+    <string name="abc15">step onto or off of an escalator while holding onto parcels such that you cannot hold onto the railing?</string>
+    <string name="abc16">walk outside on icy sidewalks?</string>
+    <string name="abcOption1">No confidence</string>
+    <string name="abcOption2">Completely confident</string>
 
     <string name="not_at_all">Not at all</string>
     <string name="a_great_deal">A great deal</string>
+    <string name="slightly">Slightly</string>
+    <string name="some">Some</string>
+    <string name="a_lot">A lot</string>
+    <string name="limited_a_lot">Yes, limited a lot</string>
+    <string name="limited_a_little">Yes, limited a little</string>
+    <string name="not_limited_at_all">No, not limited at all</string>
 
 
     <string name="disclaimer">We are conducting a study about how aging affects ability to function in everyday life.  The study involves some simple tests of mobility and some questionnaires.  We are asking your permission for a person from the research team to visit you and explain the study to you.</string>
@@ -265,5 +339,9 @@
     <string name="skip_title">Why are you skipping?</string>
     <string name="not_applicable">Not Applicable</string>
     <string name="no_answer">No answer</string>
+    <string name="select_questionnaire">Please select a questionnaire</string>
+    <string name="nurse">Nurse</string>
+    <string name="physical">Physical</string>
+    <string name="patient_already_exists">Patient with ID %1$s already exists.  Do you wish to load this patient from the database?</string>
 
 </resources>

@@ -13,7 +13,7 @@ import android.widget.Button;
 
 /**
  * *****************************************************************************************
- * Custom 2 button dialog, with clickhandler
+ * Custom 3 button dialog, with clickhandler
  * *****************************************************************************************
  */
 public class DialogThreeButton extends Dialog {

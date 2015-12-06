@@ -1,10 +1,12 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -87,6 +89,30 @@ public class HomeActivity extends Activity {
             return;
         }
 
+        Cursor cursor = myDb.getColumns(new String[]{DBAdapter.KEY_ROWID, DBAdapter.KEY_HOSPITALID});
+        if (cursor.moveToFirst()){
+            do {
+                if (cursor.getString(1).equals(subjectId)){
+                    final int id = cursor.getInt(0);
+                    DialogTwoButton.ClickHandler clickHandler = new DialogTwoButton.ClickHandler() {
+                        @Override
+                        public void onPositiveClick() {
+                            currentPatientID = id;
+                            showQuestionnaireSelector();
+                        }
+
+                        @Override
+                        public void onNegativeClick() {
+
+                        }
+                    };
+                    String titleFormat = context.getString(R.string.patient_already_exists);
+                    String title = String.format(titleFormat, subjectId);
+                    AppUtils.showTwoButtonDialog(title, getString(R.string.yes), getString(R.string.cancel), context, clickHandler);
+                    return;
+                }
+            } while (cursor.moveToNext());
+        }
 
 
         DialogDisclaimer.ClickHandler handler = new DialogDisclaimer.ClickHandler() {
@@ -110,8 +136,8 @@ public class HomeActivity extends Activity {
 
                 currentPatientID = myDb.createData(evaluator, subjectId, formattedDate, language);
 
-                Intent intent = new Intent(context, QuestionnaireActivity.class);
-                startActivity(intent);
+                showQuestionnaireSelector();
+
             }
 
             @Override
@@ -126,9 +152,31 @@ public class HomeActivity extends Activity {
         DialogDisclaimer dialog = new DialogDisclaimer(this, handler);
         dialog.show();
 
+    }
 
+    public void showQuestionnaireSelector(){
+        final Intent intent = new Intent(context, QuestionnaireActivity.class);
+        DialogQuestionnaireSelector.ClickHandler selectHandler = new DialogQuestionnaireSelector.ClickHandler() {
+            @Override
+            public void onNurseClick() {
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.NURSE);
+                startActivity(intent);
+            }
 
+            @Override
+            public void onEvaluatorClick() {
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.EVALUATOR);
+                startActivity(intent);
+            }
 
+            @Override
+            public void onPhysicalClick() {
+                //intent.putExtra("questionnaire_name", ItemSection.Questionnaire.PHYSICAL);
+                //startActivity(intent);
+            }
+        };
+        DialogQuestionnaireSelector selectorDialog = new DialogQuestionnaireSelector(context, selectHandler);
+        selectorDialog.show();
     }
 
     public void continueQuestionnaire(View view) {
@@ -136,7 +184,6 @@ public class HomeActivity extends Activity {
         Intent intent = new Intent(this, SelectPatientActivity.class);
         startActivity(intent);
     }
-
 
 
     public void setLocale(String lang) {

@@ -28,13 +28,14 @@ public class SelectPatientActivity extends AppCompatActivity {
     public static ListAdapter adapter;
     private ListView listView;
     private boolean[] selectedArray;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_patient);
 
-        final Context context = this;
+        context = this;
         listView = (ListView) findViewById(R.id.list);
 
         Cursor cursor = HomeActivity.myDb.getAllRowData();
@@ -115,13 +116,39 @@ public class SelectPatientActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 HomeActivity.currentPatientID = IDarray[i];
-                Intent intent = new Intent(context, QuestionnaireActivity.class);
-                startActivity(intent);
-                ((Activity) context).finish();
+                showQuestionnaireSelector();
 
             }
         });
 
+    }
+
+    public void showQuestionnaireSelector(){
+        final Intent intent = new Intent(context, QuestionnaireActivity.class);
+        DialogQuestionnaireSelector.ClickHandler selectHandler = new DialogQuestionnaireSelector.ClickHandler() {
+            @Override
+            public void onNurseClick() {
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.NURSE);
+                startActivity(intent);
+                ((Activity) context).finish();
+            }
+
+            @Override
+            public void onEvaluatorClick() {
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.EVALUATOR);
+                startActivity(intent);
+                ((Activity) context).finish();
+            }
+
+            @Override
+            public void onPhysicalClick() {
+                //intent.putExtra("questionnaire_name", ItemSection.Questionnaire.PHYSICAL);
+                //startActivity(intent);
+                //((Activity) context).finish();
+            }
+        };
+        DialogQuestionnaireSelector selectorDialog = new DialogQuestionnaireSelector(context, selectHandler);
+        selectorDialog.show();
     }
 
 

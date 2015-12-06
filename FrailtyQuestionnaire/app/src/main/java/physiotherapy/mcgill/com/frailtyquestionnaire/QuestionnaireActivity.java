@@ -2,9 +2,11 @@ package physiotherapy.mcgill.com.frailtyquestionnaire;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Environment;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ public class QuestionnaireActivity extends AppCompatActivity
     public static Context context;
     public static int sectionNumber;
     public static int questionNumber;
+    public static ArrayList<ItemSection> sections;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -39,12 +42,27 @@ public class QuestionnaireActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        ItemSection.Questionnaire questionnaire = (ItemSection.Questionnaire) intent.getSerializableExtra("questionnaire_name");
+        switch (questionnaire){
+
+            case NURSE:
+                sections = DataSource.nurseSections();
+                break;
+            case EVALUATOR:
+                sections = DataSource.evaluatorSections();
+                break;
+            case PHYSICAL:
+                break;
+        }
         setContentView(R.layout.activity_questionnaire);
 
         context = this;
         mNavigationDrawerFragment = (DrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
+
+
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -115,8 +133,8 @@ public class QuestionnaireActivity extends AppCompatActivity
                 @Override
                 public void onPositiveClick() {
 
-                    if (DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
-                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
+                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
+                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
 
                     }
                     nextQuestion();
@@ -125,8 +143,8 @@ public class QuestionnaireActivity extends AppCompatActivity
                 @Override
                 public void onNegativeClick() {
 
-                    if (DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
-                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, DataSource.sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
+                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
+                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
                     }
                     nextQuestion();
                 }
@@ -139,12 +157,15 @@ public class QuestionnaireActivity extends AppCompatActivity
 
 
     public void loadQuestion(int sectionNum, int questionNum){
-        ItemQuestion question = DataSource.sections.get(sectionNum).questions.get(questionNum);
+        ItemQuestion question = sections.get(sectionNum).questions.get(questionNum);
         ItemQuestion.QuestionType questionType = question.questionType;
 
         switch (questionType){
             case TITLE:
                 new QuestionTitle(context, sectionNum, questionNum, questionHandler);
+                break;
+            case TITLE_LONG:
+                new QuestionTitleLong(context, sectionNum, questionNum, questionHandler);
                 break;
             case SLIDER:
                 new QuestionSlider(context, sectionNum, questionNum, questionHandler);
@@ -170,9 +191,15 @@ public class QuestionnaireActivity extends AppCompatActivity
             case SMILEY:
                 new QuestionSmiley(context, sectionNum, questionNum, questionHandler);
                 break;
+            case SLIDER_100:
+                new QuestionSlider100(context, sectionNum, questionNum, questionHandler);
+                break;
+            case SLIDER_100_PERCENT:
+                new QuestionSlider100Percent(context, sectionNum, questionNum, questionHandler);
+                break;
         }
 
-        mTitle = DataSource.sections.get(sectionNum).title;
+        mTitle = sections.get(sectionNum).title;
         restoreActionBar();
     }
 
@@ -184,10 +211,10 @@ public class QuestionnaireActivity extends AppCompatActivity
             @Override
             public void run() {
 
-                if (questionNumber < DataSource.sections.get(sectionNumber).questions.size()-1){
+                if (questionNumber < sections.get(sectionNumber).questions.size()-1){
                     questionNumber = questionNumber + 1;
                     loadQuestion(sectionNumber, questionNumber);
-                } else if (sectionNumber < DataSource.sections.size()-1){
+                } else if (sectionNumber < sections.size()-1){
                     sectionNumber = sectionNumber + 1;
                     questionNumber = 0;
                     onNavigationDrawerItemSelected(sectionNumber);
@@ -217,7 +244,7 @@ public class QuestionnaireActivity extends AppCompatActivity
                 } else if (sectionNumber > 0){
                     sectionNumber = sectionNumber - 1;
                     onNavigationDrawerItemSelected(sectionNumber);
-                    questionNumber = DataSource.sections.get(sectionNumber).questions.size() - 1;
+                    questionNumber = sections.get(sectionNumber).questions.size() - 1;
                     loadQuestion(sectionNumber, questionNumber);
                 } else {
                     //Do nothing
@@ -230,14 +257,17 @@ public class QuestionnaireActivity extends AppCompatActivity
 
 
     public static void exportToCSV(){
+
+        Cursor cursor = HomeActivity.myDb.getRowData(HomeActivity.currentPatientID);
+        cursor.moveToFirst();
+
         File path = Environment.getExternalStorageDirectory();
-        File filename = new File(path, "/FrailtyAnswers-" + HomeActivity.currentPatientID +".csv");
+        File filename = new File(path, "/FrailtyAnswers-" + cursor.getString(cursor.getColumnIndex(DBAdapter.KEY_HOSPITALID)) +".csv");
 
         try {
             CSVWriter writer = new CSVWriter(new FileWriter(filename), '\t');
             writer.writeNext(new String[]{"sep=\t"});
 
-            Cursor cursor = HomeActivity.myDb.getRowData(HomeActivity.currentPatientID);
             writer.writeNext(cursor.getColumnNames());
 
             if (cursor.moveToFirst()){
