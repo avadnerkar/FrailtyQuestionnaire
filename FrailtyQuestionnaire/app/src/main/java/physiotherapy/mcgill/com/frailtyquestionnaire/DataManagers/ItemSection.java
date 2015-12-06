@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers;
 
 import java.util.ArrayList;
 

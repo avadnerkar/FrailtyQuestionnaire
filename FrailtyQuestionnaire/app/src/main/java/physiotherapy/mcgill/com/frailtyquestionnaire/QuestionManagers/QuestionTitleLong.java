@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,20 +6,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.QuestionnaireActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemQuestion;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
 /**
- * Created by Abhishek Vadnerkar on 15-11-14.
+ * Created by Abhishek Vadnerkar on 15-12-05.
  */
-public class QuestionTitle {
+public class QuestionTitleLong {
 
-    public QuestionTitle(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
+    public QuestionTitleLong(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = QuestionnaireActivity.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_section_titlepage, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_section_title_long, QuestionnaireActivity.containerLayout, true);
 
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);

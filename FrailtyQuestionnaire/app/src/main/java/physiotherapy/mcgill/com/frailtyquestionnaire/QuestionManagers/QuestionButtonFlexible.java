@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.QuestionnaireActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.HomeActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemQuestion;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
 /**
  * Created by Abhishek Vadnerkar on 15-11-04.

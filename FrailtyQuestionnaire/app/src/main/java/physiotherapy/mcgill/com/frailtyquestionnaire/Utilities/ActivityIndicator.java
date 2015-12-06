@@ -1,9 +1,11 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.Utilities;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.view.Window;
 import android.view.WindowManager;
+
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
 /**
  * Created by alexandrehuot on 15-10-17.

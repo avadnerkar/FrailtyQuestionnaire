@@ -279,6 +279,14 @@
     <string name="abcOption1">No confidence</string>
     <string name="abcOption2">Completely confident</string>
 
+    <string name="lsm">Life Space Mobility</string>
+    <string name="lsmTitle">During the past 4 weeks, how many days have you:</string>
+    <string name="lsm1">been to other rooms in your home besides the room where you sleep?</string>
+    <string name="lsm2">been to an area outside your home such as your porch, deck, or patio, hallway of an apartment building, garage?</string>
+    <string name="lsm3">been to places in your neighbourhood other than your own yard or apartment building?</string>
+    <string name="lsm4">been to places outside your neighbourhood, but within your town?</string>
+    <string name="lsm5">been to places outside your town?</string>
+
     <string name="not_at_all">Not at all</string>
     <string name="a_great_deal">A great deal</string>
     <string name="slightly">Slightly</string>

@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers;
 
 /**
  * Created by Abhishek Vadnerkar on 15-10-29.
@@ -12,7 +12,7 @@ public class ItemQuestion {
     public String[] options;
     public Object[] dbValues;
     public enum QuestionType {
-        TITLE, TITLE_LONG, SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE, SLIDER_REVERSE, SLIDER_EDIT, PLUS_MINUS, SMILEY, SLIDER_100, SLIDER_100_PERCENT
+        TITLE, TITLE_LONG, SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE, SLIDER_REVERSE, SLIDER_EDIT, PLUS_MINUS, SMILEY, SLIDER_100, SLIDER_100_PERCENT, BUTTON_GRID
     }
     public QuestionType questionType;
     public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String[] dbKey, String[] options, Object[] dbValues){

@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.Activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Environment;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
@@ -21,6 +20,28 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonFlexible;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonGrid;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionCompleted;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionPlusMinus;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionRadioVertical;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider100;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider100Percent;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSliderEdit;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSliderReverse;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSmiley;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionTitle;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionTitleLong;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Utilities.ActivityIndicator;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Utilities.AppUtils;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.DBAdapter;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.DataSource;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogTwoButton;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemQuestion;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemSection;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
 public class QuestionnaireActivity extends AppCompatActivity
         implements DrawerFragment.NavigationDrawerCallbacks {
@@ -133,7 +154,7 @@ public class QuestionnaireActivity extends AppCompatActivity
                 @Override
                 public void onPositiveClick() {
 
-                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
+                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null) {
                         HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
 
                     }
@@ -143,7 +164,7 @@ public class QuestionnaireActivity extends AppCompatActivity
                 @Override
                 public void onNegativeClick() {
 
-                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null){
+                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null) {
                         HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
                     }
                     nextQuestion();
@@ -196,6 +217,9 @@ public class QuestionnaireActivity extends AppCompatActivity
                 break;
             case SLIDER_100_PERCENT:
                 new QuestionSlider100Percent(context, sectionNum, questionNum, questionHandler);
+                break;
+            case BUTTON_GRID:
+                new QuestionButtonGrid(context, sectionNum, questionNum, questionHandler);
                 break;
         }
 

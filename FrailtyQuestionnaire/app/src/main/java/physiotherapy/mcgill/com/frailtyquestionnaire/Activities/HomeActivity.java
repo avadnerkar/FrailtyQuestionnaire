@@ -1,14 +1,11 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.Activities;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -21,6 +18,16 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.DBAdapter;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.DataSource;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogDisclaimer;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogQuestionnaireSelector;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogSimple;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogTwoButton;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemSection;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Utilities.AppUtils;
 
 public class HomeActivity extends Activity {
 

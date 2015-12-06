@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,18 +8,23 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-/**
- * Created by Abhishek Vadnerkar on 15-12-05.
- */
-public class QuestionSlider100Percent {
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.QuestionnaireActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.HomeActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemQuestion;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
-    public QuestionSlider100Percent(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
+/**
+ * Created by Abhishek Vadnerkar on 15-10-31.
+ */
+public class QuestionSlider {
+
+    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = QuestionnaireActivity.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_100_point_percent, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_10_point, QuestionnaireActivity.containerLayout, true);
 
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);

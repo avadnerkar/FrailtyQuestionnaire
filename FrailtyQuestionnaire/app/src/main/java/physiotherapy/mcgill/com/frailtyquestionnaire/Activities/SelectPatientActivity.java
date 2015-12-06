@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.Activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,6 +21,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.DBAdapter;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogQuestionnaireSelector;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemSection;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
 public class SelectPatientActivity extends AppCompatActivity {
 

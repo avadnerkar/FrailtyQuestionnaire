@@ -1,29 +1,32 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-/**
- * Created by Abhishek Vadnerkar on 15-11-04.
- */
-public class QuestionSliderEdit {
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.QuestionnaireActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.HomeActivity;
+import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemQuestion;
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
-    public QuestionSliderEdit(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
+/**
+ * Created by Abhishek Vadnerkar on 15-12-05.
+ */
+public class QuestionSlider100 {
+    public QuestionSlider100(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = QuestionnaireActivity.sections.get(sectionNum).questions.get(questionNum);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.cell_10_point_edit, QuestionnaireActivity.containerLayout, true);
+        View view = inflater.inflate(R.layout.cell_100_point, QuestionnaireActivity.containerLayout, true);
 
-        final EditText title = (EditText) view.findViewById(R.id.title);
-        title.setHint(question.title);
+        TextView title = (TextView) view.findViewById(R.id.title);
+        title.setText(question.title);
 
         TextView subtitle = (TextView) view.findViewById(R.id.subtitle);
         subtitle.setText(question.subtitle);
@@ -50,8 +53,6 @@ public class QuestionSliderEdit {
                     @Override
                     public void run() {
                         HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(seekBar.getProgress()));
-                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[1], title.getText().toString());
-
                     }
                 };
                 thread.start();

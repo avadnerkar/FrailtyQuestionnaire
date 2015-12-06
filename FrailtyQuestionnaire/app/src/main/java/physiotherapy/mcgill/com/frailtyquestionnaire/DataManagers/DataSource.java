@@ -1,10 +1,10 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers;
 
-import android.content.ClipData;
 import android.content.Context;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
+import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 
 /**
  * Created by Abhishek Vadnerkar on 15-10-29.
@@ -31,6 +31,7 @@ public class DataSource {
     public static ItemSection raschSection;
     public static ItemSection rand36Section;
     public static ItemSection abcSection;
+    public static ItemSection lsmSection;
     public static void init(Context context){
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
@@ -217,6 +218,14 @@ public class DataSource {
         abc.add(new ItemQuestion(ItemQuestion.QuestionType.SLIDER_100_PERCENT, context.getString(R.string.abcTitle), context.getString(R.string.abc16), null, new String[]{"ABC16"}, new String[]{context.getString(R.string.abcOption1), context.getString(R.string.abcOption2)}, null));
         abcSection = new ItemSection(context.getString(R.string.abc), abc);
 
+        ArrayList<ItemQuestion> lsm = new ArrayList<>();
+        lsm.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.lsm), null, null, null, null, null));
+        lsm.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_GRID, context.getString(R.string.lsmTitle), context.getString(R.string.lsm1), null, new String[]{"LSM1"}, null, null));
+        lsm.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_GRID, context.getString(R.string.lsmTitle), context.getString(R.string.lsm2), null, new String[]{"LSM2"}, null, null));
+        lsm.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_GRID, context.getString(R.string.lsmTitle), context.getString(R.string.lsm3), null, new String[]{"LSM3"}, null, null));
+        lsm.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_GRID, context.getString(R.string.lsmTitle), context.getString(R.string.lsm4), null, new String[]{"LSM4"}, null, null));
+        lsm.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_GRID, context.getString(R.string.lsmTitle), context.getString(R.string.lsm5), null, new String[]{"LSM5"}, null, null));
+        lsmSection = new ItemSection(context.getString(R.string.lsm), lsm);
 
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
@@ -241,8 +250,8 @@ public class DataSource {
         sections.add(raschSection);
         sections.add(rand36Section);
         sections.add(abcSection);
+        sections.add(lsmSection);
         sections.add(completionSection);
-
     }
 
     public static ArrayList<ItemSection> nurseSections(){
@@ -274,6 +283,7 @@ public class DataSource {
         chosenSections.add(rand36Section);
         chosenSections.add(vahsSection);
         chosenSections.add(abcSection);
+        chosenSections.add(lsmSection);
         chosenSections.add(completionSection);
         return chosenSections;
     }

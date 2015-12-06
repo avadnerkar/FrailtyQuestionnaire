@@ -1,4 +1,4 @@
-package physiotherapy.mcgill.com.frailtyquestionnaire;
+package physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,7 +32,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 25;
+    public static final int DATABASE_VERSION = 26;
 
 
     //Table Create Statements
