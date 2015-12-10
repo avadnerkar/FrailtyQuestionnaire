@@ -8,8 +8,8 @@ android {
         applicationId "physiotherapy.mcgill.com.frailtyquestionnaire"
         minSdkVersion 18
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 27
+        versionName "1.27"
     }
     buildTypes {
         release {

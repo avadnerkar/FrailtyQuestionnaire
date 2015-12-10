@@ -287,6 +287,25 @@
     <string name="lsm4">been to places outside your neighbourhood, but within your town?</string>
     <string name="lsm5">been to places outside your town?</string>
 
+    <string name="pdq">Perceived Deficits Questionnaire</string>
+    <string name="pdqDescription">The following questions describe several situations in which a person may encounter problems with memory, attention or concentration.  If you are marking your own answers, please select the appropriate response based on your cognitive function during the past 4 weeks.  Please answer every question.  If you are not sure which answer to select, please choose the one answer that comes closest to describing you.</string>
+    <string name="pdqTitle">During the past 4 weeks, how often did you:</string>
+    <string name="pdq1">Have difficulty remembering the names of people, even ones you have met several times?</string>
+    <string name="pdq2">Forget what you came into the room for?</string>
+    <string name="pdq3">Miss appointments and meetings you had scheduled?</string>
+    <string name="pdq4">Have trouble concentrating on things like watching a television program or reading a book?</string>
+    <string name="pdq5">Forget the date unless you looked it up?</string>
+    <string name="pdq6">Forget to do things like turn off the stove or turn on your alarm clock?</string>
+    <string name="pdq7">Have trouble holding phone numbers in your head, even for a few seconds?</string>
+    <string name="pdq8">Forget to take your medication?</string>
+    <string name="pdq9">Have trouble making decisions?</string>
+
+    <string name="never">Never</string>
+    <string name="rarely">Rarely</string>
+    <string name="sometimes">Sometimes</string>
+    <string name="often">Often</string>
+    <string name="almost_always">Almost always</string>
+
     <string name="not_at_all">Not at all</string>
     <string name="a_great_deal">A great deal</string>
     <string name="slightly">Slightly</string>
@@ -321,6 +340,8 @@
     <string name="much_depression">Much depression</string>
     <string name="much_anxiety">Much anxiety</string>
     <string name="much">Much</string>
+    <string name="confirm_answer">Please confirm your answer</string>
+    <string name="zero">0</string>
 
     <string name="one">One</string>
     <string name="two">Two</string>

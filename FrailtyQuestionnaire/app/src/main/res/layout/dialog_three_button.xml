@@ -22,16 +22,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/dialog_ok"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:background="@null"
+            android:textAllCaps="false"
             android:text="@string/ok"
             android:textColor="@color/Blue"
             android:textSize="24sp" />
@@ -44,10 +45,11 @@
         <Button
             android:id="@+id/dialog_cancel"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:background="@null"
+            android:textAllCaps="false"
             android:text="@string/cancel"
             android:textColor="@color/Blue"
             android:textSize="24sp" />
@@ -60,10 +62,11 @@
         <Button
             android:id="@+id/dialog_third"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:background="@null"
+            android:textAllCaps="false"
             android:text="@string/cancel"
             android:textColor="@color/Blue"
             android:textSize="24sp" />

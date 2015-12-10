@@ -36,50 +36,46 @@ public class QuestionButtonGrid {
         TextView subtitle = (TextView) view.findViewById(R.id.subtitle);
         subtitle.setText(question.subtitle);
 
-        GridLayout gridLayout = (GridLayout) view.findViewById(R.id.button_container);
-        int margin = 5;
-        GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
-        layoutParams.setMargins(margin, margin, margin, margin);
+        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.button_container);
 
-        for (int i=0, r=0, c = 0; i<28; i++, c++){
+        for (int i=0; i<4; i++){
 
-            if (c==7){
-                c=0;
-                r++;
+            LinearLayout subLayout = new LinearLayout(context);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+            layoutParams.setMargins(0, 5, 0, 5);
+            subLayout.setLayoutParams(layoutParams);
+            linearLayout.addView(subLayout);
+
+            for (int j=0; j<7; j++){
+                Button button = new Button(context);
+                LinearLayout.LayoutParams subLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+                subLayoutParams.setMargins(5, 0, 5, 0);
+                button.setLayoutParams(subLayoutParams);
+                button.setText(String.valueOf(i*7+j+1));button.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimension(R.dimen.text_medium));
+                button.setBackground(ContextCompat.getDrawable(context, R.drawable.button_primary));
+                button.setTransformationMethod(null);
+
+                subLayout.addView(button);
+                final String dbValueFinal = button.getText().toString();
+
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Thread thread = new Thread() {
+                            @Override
+                            public void run() {
+                                HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], dbValueFinal);
+                            }
+                        };
+                        thread.start();
+
+                        questionHandler.showNext();
+                    }
+                });
+
             }
-            Button button = new Button(context);
-            //ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-            layoutParams.columnSpec = GridLayout.spec(c);
-            layoutParams.rowSpec = GridLayout.spec(r);
-            //layoutParams.setGravity(Gravity.RIGHT);
-            //layoutParams.height = (gridLayout.getHeight()-gridLayout.getPaddingTop() - gridLayout.getPaddingBottom())/gridLayout.getRowCount() - 2*margin;
-            //layoutParams.width = (gridLayout.getWidth() - gridLayout.getPaddingLeft() - gridLayout.getPaddingRight())/gridLayout.getColumnCount() - 2*margin;
-            //layoutParams.height = 50;
-            //layoutParams.width = 50;
-            button.setLayoutParams(layoutParams);
-            button.setText(String.valueOf(i + 1));
-            button.setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimension(R.dimen.text_medium));
-            button.setBackground(ContextCompat.getDrawable(context, R.drawable.button_primary));
-            button.setTransformationMethod(null);
-            gridLayout.addView(button);
 
-            final String dbValueFinal = String.valueOf(i+1);
-
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Thread thread = new Thread(){
-                        @Override
-                        public void run() {
-                            HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], dbValueFinal);
-                        }
-                    };
-                    thread.start();
-
-                    questionHandler.showNext();
-                }
-            });
 
         }
 

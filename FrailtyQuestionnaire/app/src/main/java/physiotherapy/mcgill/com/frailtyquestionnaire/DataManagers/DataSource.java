@@ -32,6 +32,7 @@ public class DataSource {
     public static ItemSection rand36Section;
     public static ItemSection abcSection;
     public static ItemSection lsmSection;
+    public static ItemSection pdqSection;
     public static void init(Context context){
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
@@ -227,6 +228,20 @@ public class DataSource {
         lsm.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_GRID, context.getString(R.string.lsmTitle), context.getString(R.string.lsm5), null, new String[]{"LSM5"}, null, null));
         lsmSection = new ItemSection(context.getString(R.string.lsm), lsm);
 
+        ArrayList<ItemQuestion> pdq = new ArrayList<>();
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE_LONG, context.getString(R.string.pdq), context.getString(R.string.pdqDescription), null, null, null, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq1), null, new String[]{"PDQ1"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq2), null, new String[]{"PDQ2"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq3), null, new String[]{"PDQ3"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq4), null, new String[]{"PDQ4"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq5), null, new String[]{"PDQ5"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq6), null, new String[]{"PDQ6"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq7), null, new String[]{"PDQ7"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq8), null, new String[]{"PDQ8"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdq.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE, context.getString(R.string.pdqTitle), context.getString(R.string.pdq9), null, new String[]{"PDQ9"}, new String[]{context.getString(R.string.never), context.getString(R.string.rarely), context.getString(R.string.sometimes), context.getString(R.string.often), context.getString(R.string.almost_always)}, null));
+        pdqSection = new ItemSection(context.getString(R.string.pdq), pdq);
+
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         completionSection = new ItemSection(context.getString(R.string.finish), completion);
@@ -251,6 +266,7 @@ public class DataSource {
         sections.add(rand36Section);
         sections.add(abcSection);
         sections.add(lsmSection);
+        sections.add(pdqSection);
         sections.add(completionSection);
     }
 
@@ -284,6 +300,7 @@ public class DataSource {
         chosenSections.add(vahsSection);
         chosenSections.add(abcSection);
         chosenSections.add(lsmSection);
+        chosenSections.add(pdqSection);
         chosenSections.add(completionSection);
         return chosenSections;
     }

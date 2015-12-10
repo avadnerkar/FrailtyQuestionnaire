@@ -30,6 +30,13 @@ public class QuestionButtonFlexible {
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(question.title);
 
+        TextView subtitle = (TextView) view.findViewById(R.id.subtitle);
+        if (question.subtitle != null){
+            subtitle.setText(question.subtitle);
+        } else {
+            subtitle.setVisibility(View.GONE);
+        }
+
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.button_container);
 
         for (int i=0; i<question.options.length; i++){

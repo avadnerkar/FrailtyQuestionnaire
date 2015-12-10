@@ -11,14 +11,16 @@ import android.widget.TextView;
 import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.QuestionnaireActivity;
 import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.HomeActivity;
 import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.ItemQuestion;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Dialogs.DialogThreeButton;
 import physiotherapy.mcgill.com.frailtyquestionnaire.R;
+import physiotherapy.mcgill.com.frailtyquestionnaire.Utilities.AppUtils;
 
 /**
  * Created by Abhishek Vadnerkar on 15-10-31.
  */
 public class QuestionSlider {
 
-    public QuestionSlider(Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
+    public QuestionSlider(final Context context, int sectionNum, int questionNum, final QuestionnaireActivity.QuestionHandler questionHandler){
 
         QuestionnaireActivity.containerLayout.removeAllViews();
         final ItemQuestion question = QuestionnaireActivity.sections.get(sectionNum).questions.get(questionNum);
@@ -50,15 +52,54 @@ public class QuestionSlider {
             @Override
             public void onClick(View v) {
 
-                Thread thread = new Thread(){
-                    @Override
-                    public void run() {
-                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(seekBar.getProgress()));
-                    }
-                };
-                thread.start();
+                if (seekBar.getProgress() == 0){
+                    AppUtils.showThreeButtonDialog(context.getString(R.string.confirm_answer), context.getString(R.string.zero), context.getString(R.string.not_applicable), context.getString(R.string.no_answer), context, new DialogThreeButton.ClickHandler() {
+                        @Override
+                        public void onPositiveClick() {
+                            Thread thread = new Thread(){
+                                @Override
+                                public void run() {
+                                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(seekBar.getProgress()));
+                                }
+                            };
+                            thread.start();
+                            questionHandler.showNext();
+                        }
 
-                questionHandler.showNext();
+                        @Override
+                        public void onNegativeClick() {
+                            Thread thread = new Thread(){
+                                @Override
+                                public void run() {
+                                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], "notApplicable");
+                                }
+                            };
+                            thread.start();
+                            questionHandler.showNext();
+                        }
+
+                        @Override
+                        public void onThirdClick() {
+                            Thread thread = new Thread(){
+                                @Override
+                                public void run() {
+                                    HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], "noAnswer");
+                                }
+                            };
+                            thread.start();
+                            questionHandler.showNext();
+                        }
+                    });
+                } else {
+                    Thread thread = new Thread(){
+                        @Override
+                        public void run() {
+                            HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, question.dbKey[0], String.valueOf(seekBar.getProgress()));
+                        }
+                    };
+                    thread.start();
+                    questionHandler.showNext();
+                }
             }
         });
     }
