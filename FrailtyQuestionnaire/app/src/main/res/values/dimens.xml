@@ -22,5 +22,6 @@
     <dimen name="bar_height">50dp</dimen>
     <dimen name="button_diameter">60dp</dimen>
     <dimen name="number_field_width">100dp</dimen>
+    <dimen name="units_column">120dp</dimen>
 
 </resources>

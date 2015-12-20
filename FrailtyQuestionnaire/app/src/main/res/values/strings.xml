@@ -372,5 +372,20 @@
     <string name="nurse">Nurse</string>
     <string name="physical">Physical</string>
     <string name="patient_already_exists">Patient with ID %1$s already exists.  Do you wish to load this patient from the database?</string>
+    <string name="anthropometric_measurements">Anthropometric measurements</string>
+    <string name="weight">Weight</string>
+    <string name="enter_weight">Enter weight</string>
+    <string name="kg">kg</string>
+    <string name="lb">lb</string>
+    <string name="height">Height</string>
+    <string name="enter_height">Enter height</string>
+    <string name="cm">cm</string>
+    <string name="ft">ft</string>
+    <string name="BMI">BMI</string>
+    <string name="bmi_units"><![CDATA[kg/m&lt;sup&gt;2&lt;/sup&gt;]]></string>
+    <string name="arm_circumference">Arm circumference</string>
+    <string name="calf_circumference">Calf circumference</string>
+    <string name="leg_length">Leg length</string>
+    <string name="shoe_size">Shoe size</string>
 
 </resources>
