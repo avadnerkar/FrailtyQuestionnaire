@@ -32,7 +32,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 27;
+    public static final int DATABASE_VERSION = 28;
 
 
     //Table Create Statements
@@ -165,6 +165,18 @@ public class DBAdapter {
     public Cursor getField(long rowId, String key) {
         String where = KEY_ROWID + "=" + rowId;
         Cursor c = 	db.query(true, DATA_TABLE, new String[]{key},
+                where, null, null, null, null, null);
+        if (c != null) {
+            c.moveToFirst();
+        }
+
+        return c;
+    }
+
+    // Get a number of fields
+    public Cursor getFields(long rowId, String[] keys) {
+        String where = KEY_ROWID + "=" + rowId;
+        Cursor c = 	db.query(true, DATA_TABLE, keys,
                 where, null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();

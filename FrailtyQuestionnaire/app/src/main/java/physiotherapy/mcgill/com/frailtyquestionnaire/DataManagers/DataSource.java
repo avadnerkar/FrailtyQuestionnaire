@@ -33,6 +33,7 @@ public class DataSource {
     public static ItemSection abcSection;
     public static ItemSection lsmSection;
     public static ItemSection pdqSection;
+    public static ItemSection anthropometricSection;
     public static void init(Context context){
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
@@ -242,6 +243,10 @@ public class DataSource {
         pdqSection = new ItemSection(context.getString(R.string.pdq), pdq);
 
 
+        ArrayList<ItemQuestion> anthropometric = new ArrayList<>();
+        anthropometric.add(new ItemQuestion(ItemQuestion.QuestionType.ANTHROPOMETRIC, null, null, null, new String[]{"WEIGHT_kg", "HEIGHT_cm", "BMI_kg_m2", "ARM_CIRC_cm", "CALF_CIRC_cm", "LEG_LENGTH_cm", "SHOE_SIZE"}, null, null));
+        anthropometricSection = new ItemSection(context.getString(R.string.anthropometric_measurements), anthropometric);
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         completionSection = new ItemSection(context.getString(R.string.finish), completion);
@@ -267,6 +272,7 @@ public class DataSource {
         sections.add(abcSection);
         sections.add(lsmSection);
         sections.add(pdqSection);
+        sections.add(anthropometricSection);
         sections.add(completionSection);
     }
 
@@ -308,7 +314,8 @@ public class DataSource {
     public static ArrayList<ItemSection> physicalSections(){
 
         ArrayList<ItemSection> chosenSections = new ArrayList<>();
-
+        chosenSections.add(anthropometricSection);
+        chosenSections.add(completionSection);
         return chosenSections;
     }
 

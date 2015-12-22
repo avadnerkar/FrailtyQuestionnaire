@@ -178,8 +178,8 @@ public class HomeActivity extends Activity {
 
             @Override
             public void onPhysicalClick() {
-                //intent.putExtra("questionnaire_name", ItemSection.Questionnaire.PHYSICAL);
-                //startActivity(intent);
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.PHYSICAL);
+                startActivity(intent);
             }
         };
         DialogQuestionnaireSelector selectorDialog = new DialogQuestionnaireSelector(context, selectHandler);

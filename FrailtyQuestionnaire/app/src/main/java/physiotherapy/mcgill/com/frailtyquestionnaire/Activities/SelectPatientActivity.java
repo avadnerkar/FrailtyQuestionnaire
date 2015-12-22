@@ -147,9 +147,9 @@ public class SelectPatientActivity extends AppCompatActivity {
 
             @Override
             public void onPhysicalClick() {
-                //intent.putExtra("questionnaire_name", ItemSection.Questionnaire.PHYSICAL);
-                //startActivity(intent);
-                //((Activity) context).finish();
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.PHYSICAL);
+                startActivity(intent);
+                ((Activity) context).finish();
             }
         };
         DialogQuestionnaireSelector selectorDialog = new DialogQuestionnaireSelector(context, selectHandler);

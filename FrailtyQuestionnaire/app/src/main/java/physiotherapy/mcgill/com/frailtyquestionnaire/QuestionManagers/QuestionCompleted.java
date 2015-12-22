@@ -1,8 +1,10 @@
 package physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import physiotherapy.mcgill.com.frailtyquestionnaire.Activities.QuestionnaireActivity;

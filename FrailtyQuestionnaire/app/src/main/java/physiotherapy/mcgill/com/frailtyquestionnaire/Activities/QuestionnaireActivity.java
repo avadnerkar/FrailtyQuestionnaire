@@ -21,6 +21,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionAnthropometric;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonFlexible;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonGrid;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionCompleted;
@@ -74,6 +75,7 @@ public class QuestionnaireActivity extends AppCompatActivity
                 sections = DataSource.evaluatorSections();
                 break;
             case PHYSICAL:
+                sections = DataSource.physicalSections();
                 break;
         }
         setContentView(R.layout.activity_questionnaire);
@@ -220,6 +222,9 @@ public class QuestionnaireActivity extends AppCompatActivity
                 break;
             case BUTTON_GRID:
                 new QuestionButtonGrid(context, sectionNum, questionNum, questionHandler);
+                break;
+            case ANTHROPOMETRIC:
+                new QuestionAnthropometric(context, sectionNum, questionNum, questionHandler);
                 break;
         }
 

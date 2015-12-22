@@ -23,5 +23,6 @@
     <dimen name="button_diameter">60dp</dimen>
     <dimen name="number_field_width">100dp</dimen>
     <dimen name="units_column">120dp</dimen>
+    <dimen name="text_number_width">24dp</dimen>
 
 </resources>
