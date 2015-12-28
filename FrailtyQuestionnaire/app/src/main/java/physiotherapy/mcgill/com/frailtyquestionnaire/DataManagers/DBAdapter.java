@@ -32,11 +32,10 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 28;
+    public static final int DATABASE_VERSION = 36;
 
 
     //Table Create Statements
-
 
 
     // Context of application who uses us.

@@ -34,6 +34,10 @@ public class DataSource {
     public static ItemSection lsmSection;
     public static ItemSection pdqSection;
     public static ItemSection anthropometricSection;
+    public static ItemSection musculoskeletalSection;
+    public static ItemSection bergraschSection;
+    public static ItemSection test5metreSection;
+    public static ItemSection test2minSection;
     public static void init(Context context){
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
@@ -247,6 +251,25 @@ public class DataSource {
         anthropometric.add(new ItemQuestion(ItemQuestion.QuestionType.ANTHROPOMETRIC, null, null, null, new String[]{"WEIGHT_kg", "HEIGHT_cm", "BMI_kg_m2", "ARM_CIRC_cm", "CALF_CIRC_cm", "LEG_LENGTH_cm", "SHOE_SIZE"}, null, null));
         anthropometricSection = new ItemSection(context.getString(R.string.anthropometric_measurements), anthropometric);
 
+        ArrayList<ItemQuestion> musculoskeletal = new ArrayList<>();
+        musculoskeletal.add(new ItemQuestion(ItemQuestion.QuestionType.GRIP_STRENGTH, null, null, null, new String[]{"Grip_left1_kg", "Grip_left2_kg", "Grip_left3_kg", "Grip_right1_kg", "Grip_right2_kg", "Grip_right3_kg"}, null, null));
+        musculoskeletal.add(new ItemQuestion(ItemQuestion.QuestionType.VERTICAL_JUMP, null, null, null, new String[]{"Jump1_cm", "Jump2_cm", "Jump3_cm"}, null, null));
+        musculoskeletal.add(new ItemQuestion(ItemQuestion.QuestionType.SINGLE_FIELD, context.getString(R.string.sitToStandTest), null, null, new String[]{"SitToStand30sec"}, null, null));
+        musculoskeletalSection = new ItemSection(context.getString(R.string.musculoskeletal_fitness), musculoskeletal);
+
+        ArrayList<ItemQuestion> bergrasch = new ArrayList<>();
+        bergrasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE_SCROLLABLE, context.getString(R.string.tandemWalkTitle), null, null, new String[]{"TandemWalk"}, new String[]{context.getString(R.string.tandemWalk0), context.getString(R.string.tandemWalk1), context.getString(R.string.tandemWalk2), context.getString(R.string.tandemWalk3), context.getString(R.string.tandemWalk4), context.getString(R.string.tandemWalk5)}, new Integer[]{0, 1, 2, 3, 4, 5}));
+        bergrasch.add(new ItemQuestion(ItemQuestion.QuestionType.BUTTON_FLEXIBLE_SCROLLABLE, context.getString(R.string.footOnStool), context.getString(R.string.footOnStoolDescription), null, new String[]{"AlternateFootOnStool"}, new String[]{context.getString(R.string.footOnStool0), context.getString(R.string.footOnStool1), context.getString(R.string.footOnStool2), context.getString(R.string.footOnStool3), context.getString(R.string.footOnStool4)}, new Integer[]{0, 1, 2, 3, 4}));
+        bergraschSection = new ItemSection(context.getString(R.string.bergrasch), bergrasch);
+
+        ArrayList<ItemQuestion> test5metre = new ArrayList<>();
+        test5metre.add(new ItemQuestion(ItemQuestion.QuestionType.TEST_5_METRE, null, null, null, new String[]{"FiveMetre_ComfortablePace_seconds", "FiveMetre_AmbulatoryAidUsed", "FiveMetre_FootDropSplintUsed", "FiveMetre_PhysicalAssistanceRequired", "FiveMetre_Comments"}, null, null));
+        test5metreSection = new ItemSection(context.getString(R.string.test_5_metre), test5metre);
+
+        ArrayList<ItemQuestion> test2min = new ArrayList<>();
+        test2min.add(new ItemQuestion(ItemQuestion.QuestionType.TEST_2_MIN, null, null, null, new String[]{"TwoMin_DistanceWalked_metres", "TwoMin_AmbulatoryAidUsed", "TwoMin_NumFalls"}, null, null));
+        test2minSection = new ItemSection(context.getString(R.string.test_2_min), test2min);
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         completionSection = new ItemSection(context.getString(R.string.finish), completion);
@@ -273,6 +296,10 @@ public class DataSource {
         sections.add(lsmSection);
         sections.add(pdqSection);
         sections.add(anthropometricSection);
+        sections.add(musculoskeletalSection);
+        sections.add(bergraschSection);
+        sections.add(test5metreSection);
+        sections.add(test2minSection);
         sections.add(completionSection);
     }
 
@@ -315,6 +342,10 @@ public class DataSource {
 
         ArrayList<ItemSection> chosenSections = new ArrayList<>();
         chosenSections.add(anthropometricSection);
+        chosenSections.add(musculoskeletalSection);
+        chosenSections.add(bergraschSection);
+        chosenSections.add(test5metreSection);
+        chosenSections.add(test2minSection);
         chosenSections.add(completionSection);
         return chosenSections;
     }

@@ -300,6 +300,25 @@
     <string name="pdq8">Forget to take your medication?</string>
     <string name="pdq9">Have trouble making decisions?</string>
 
+    <string name="sitToStandTest">30 second sit to stand test</string>
+
+    <string name="bergrasch">Berg Rasch</string>
+    <string name="tandemWalkTitle">Tandem Walk</string>
+    <string name="tandemWalk0">Unable to complete 1 step on the line independently, i.e. requires assistance, upper extremity support, or takes a protective step</string>
+    <string name="tandemWalk1">Able to complete 1 step independently, acceptable to toe out</string>
+    <string name="tandemWalk2">Able to complete 2 or 3 steps consecutively, acceptable to toe out</string>
+    <string name="tandemWalk3">Able to complete more than 3 steps consecutively, acceptable to toe out</string>
+    <string name="tandemWalk4">Able to complete more than 3 steps consecutively, in good alignment (heel-toe contact, feet straight on the line, no toeing out) but demonstrates excessive use of equilibrium reactions</string>
+    <string name="tandemWalk5">Able to complete 7 steps consecutively, in good alignment (heel-toe contact, feet straight on the line, no toeing out) and in a steady and coordinated manner. NOT Acceptable: excessive use of equilibrium reactions looking at feet</string>
+
+    <string name="footOnStool">Alternate foot on stool</string>
+    <string name="footOnStoolDescription">Place each foot alternately on the step/stool.  Continue until each foot has touched the step/stool four times.</string>
+    <string name="footOnStool0">needs assistance to keep from falling/unable</string>
+    <string name="footOnStool1">able to complete &gt; 2 steps needs minimal assist</string>
+    <string name="footOnStool2">able to complete 4 steps without aid with supervision</string>
+    <string name="footOnStool3">able to stand independently and complete 8 steps in &gt; 20 seconds</string>
+    <string name="footOnStool4">able to stand independently and safely and complete 8 steps in 20 seconds</string>
+
     <string name="never">Never</string>
     <string name="rarely">Rarely</string>
     <string name="sometimes">Sometimes</string>
@@ -392,6 +411,23 @@
     <string name="grip_strength">Grip Strength (kg)</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
+    <string name="vertical_jump">Vertical Jump (cm)</string>
+    <string name="vertical_jump_description">Record the difference in distance for the 3 trials</string>
+
+    <string name="test_5_metre">5 metre walk - gait speed</string>
+    <string name="comfortable_pace">Comfortable pace:</string>
+    <string name="seconds">secs</string>
+    <string name="ambulatory_aid">Ambulatory aid used:</string>
+    <string name="foot_drop_splint">Foot drop splint used:</string>
+    <string name="physical_assistance_required">Physical assistance required:</string>
+    <string name="minimal">Minimal</string>
+    <string name="moderate">Moderate</string>
+    <string name="maximal">Maximal</string>
+    <string name="comments">Comments:</string>
+    <string name="distance_walked">Distance walked:</string>
+    <string name="metres">metres</string>
+    <string name="number_of_falls">Number of falls</string>
+    <string name="test_2_min">2 minute walk test</string>
 
 
 </resources>

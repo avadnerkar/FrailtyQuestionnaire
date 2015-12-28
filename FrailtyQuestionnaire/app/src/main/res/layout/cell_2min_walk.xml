@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- Distance walked -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/distance_walked"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_distance"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"
+                android:text="@string/metres"
+                android:textSize="@dimen/text_medium"
+                android:padding="@dimen/button_padding"
+                android:textColor="@color/White"/>
+
+        </LinearLayout>
+
+
+        <!-- Walking aid used -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/ambulatory_aid"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_ambulatory_aid"
+                android:inputType="text"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+        <!-- Number of falls-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/number_of_falls"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_number_falls"
+                android:inputType="number"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            style="@style/buttonLarge.Primary"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

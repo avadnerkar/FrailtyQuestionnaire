@@ -21,12 +21,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.Question2Min;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.Question5Metre;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionAnthropometric;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonFlexible;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonFlexibleScrollable;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionButtonGrid;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionCompleted;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionGripStrength;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionPlusMinus;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionRadioVertical;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSingleField;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider100;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider100Percent;
@@ -35,6 +40,7 @@ import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSl
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSmiley;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionTitle;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionTitleLong;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionVerticalJump;
 import physiotherapy.mcgill.com.frailtyquestionnaire.Utilities.ActivityIndicator;
 import physiotherapy.mcgill.com.frailtyquestionnaire.Utilities.AppUtils;
 import physiotherapy.mcgill.com.frailtyquestionnaire.DataManagers.DBAdapter;
@@ -152,26 +158,32 @@ public class QuestionnaireActivity extends AppCompatActivity
 
         if (id == R.id.action_skip){
 
-            AppUtils.showTwoButtonDialog(getResources().getString(R.string.skip_title), getResources().getString(R.string.not_applicable), getResources().getString(R.string.no_answer), this, new DialogTwoButton.ClickHandler() {
-                @Override
-                public void onPositiveClick() {
+            if (sections.get(sectionNumber).questions.get(questionNumber).dbKey.length == 1){
+                AppUtils.showTwoButtonDialog(getResources().getString(R.string.skip_title), getResources().getString(R.string.not_applicable), getResources().getString(R.string.no_answer), this, new DialogTwoButton.ClickHandler() {
+                    @Override
+                    public void onPositiveClick() {
 
-                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null) {
-                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
+                        if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null) {
+                            HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.not_applicable));
 
+                        }
+                        nextQuestion();
                     }
-                    nextQuestion();
-                }
 
-                @Override
-                public void onNegativeClick() {
+                    @Override
+                    public void onNegativeClick() {
 
-                    if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null) {
-                        HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
+                        if (sections.get(sectionNumber).questions.get(questionNumber).dbKey != null) {
+                            HomeActivity.myDb.updateAnswer(HomeActivity.currentPatientID, sections.get(sectionNumber).questions.get(questionNumber).dbKey[0], getString(R.string.no_answer));
+                        }
+                        nextQuestion();
                     }
-                    nextQuestion();
-                }
-            });
+                });
+            } else {
+                nextQuestion();
+            }
+
+
             return true;
         }
 
@@ -225,6 +237,24 @@ public class QuestionnaireActivity extends AppCompatActivity
                 break;
             case ANTHROPOMETRIC:
                 new QuestionAnthropometric(context, sectionNum, questionNum, questionHandler);
+                break;
+            case GRIP_STRENGTH:
+                new QuestionGripStrength(context, sectionNum, questionNum, questionHandler);
+                break;
+            case VERTICAL_JUMP:
+                new QuestionVerticalJump(context, sectionNum, questionNum, questionHandler);
+                break;
+            case BUTTON_FLEXIBLE_SCROLLABLE:
+                new QuestionButtonFlexibleScrollable(context, sectionNum, questionNum, questionHandler);
+                break;
+            case SINGLE_FIELD:
+                new QuestionSingleField(context, sectionNum, questionNum, questionHandler);
+                break;
+            case TEST_5_METRE:
+                new Question5Metre(context, sectionNum, questionNum, questionHandler);
+                break;
+            case TEST_2_MIN:
+                new Question2Min(context, sectionNum, questionNum, questionHandler);
                 break;
         }
 
