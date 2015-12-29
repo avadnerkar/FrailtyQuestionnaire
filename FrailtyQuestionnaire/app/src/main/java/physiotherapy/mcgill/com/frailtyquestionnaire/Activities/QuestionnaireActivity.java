@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.Question2Min;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.Question5Metre;
@@ -32,6 +33,7 @@ import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionGr
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionPlusMinus;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionRadioVertical;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSingleField;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSitToRise;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider100;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSlider100Percent;
@@ -256,6 +258,9 @@ public class QuestionnaireActivity extends AppCompatActivity
             case TEST_2_MIN:
                 new Question2Min(context, sectionNum, questionNum, questionHandler);
                 break;
+            case SIT_TO_RISE:
+                new QuestionSitToRise(context, sectionNum, questionNum, questionHandler);
+                break;
         }
 
         mTitle = sections.get(sectionNum).title;
@@ -317,7 +322,24 @@ public class QuestionnaireActivity extends AppCompatActivity
 
     public static void exportToCSV(){
 
-        Cursor cursor = HomeActivity.myDb.getRowData(HomeActivity.currentPatientID);
+        ArrayList<String> keyList = new ArrayList<>();
+        keyList.add(DBAdapter.KEY_ROWID);
+        keyList.add(DBAdapter.KEY_EVALUATOR);
+        keyList.add(DBAdapter.KEY_HOSPITALID);
+        keyList.add(DBAdapter.KEY_DATE);
+        keyList.add(DBAdapter.KEY_LANGUAGE);
+        for (ItemSection section : DataSource.sections){
+            for (ItemQuestion question : section.questions){
+                if (question.dbKey != null){
+                    Collections.addAll(keyList, question.dbKey);
+                }
+            }
+        }
+
+        String[] keys = keyList.toArray(new String[keyList.size()]);
+
+        //Cursor cursor = HomeActivity.myDb.getRowData(HomeActivity.currentPatientID);
+        Cursor cursor = HomeActivity.myDb.getColumns(keys);
         cursor.moveToFirst();
 
         File path = Environment.getExternalStorageDirectory();

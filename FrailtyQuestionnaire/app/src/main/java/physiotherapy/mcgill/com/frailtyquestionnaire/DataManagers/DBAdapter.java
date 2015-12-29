@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by Abhishek Vadnerkar on 15-10-29.
  */
@@ -32,7 +36,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 36;
+    public static final int DATABASE_VERSION = 39;
 
 
     //Table Create Statements
@@ -223,7 +227,33 @@ public class DBAdapter {
         @Override
         public void onUpgrade(SQLiteDatabase _db, int oldVersion, int newVersion) {
             Log.w(TAG, "Upgrading application's database from version " + oldVersion
-                    + " to " + newVersion + ", which will destroy all old data!");
+                    + " to " + newVersion);
+
+            Cursor c = 	_db.query(true, DATA_TABLE, null, null, null, null, null, null, null);
+            if (c != null) {
+                c.moveToFirst();
+            }
+
+            String[] columnNames = c.getColumnNames();
+            List<String> columnList = Arrays.asList(columnNames);
+            for (ItemSection section : DataSource.sections){
+
+                for (ItemQuestion question : section.questions){
+                    if (question.dbKey != null){
+                        for (int i=0; i<question.dbKey.length; i++){
+                            if (!columnList.contains(question.dbKey[i])){
+                                Log.d("DEBUG","Adding column " + question.dbKey[i]);
+                                _db.execSQL("ALTER TABLE " + DATA_TABLE + " ADD COLUMN " + question.dbKey[i] + " text");
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+
 
             // Destroy old database:
             _db.execSQL("DROP TABLE IF EXISTS " + DATA_TABLE);

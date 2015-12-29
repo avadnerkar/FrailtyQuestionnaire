@@ -13,7 +13,7 @@ public class ItemQuestion {
     public Object[] dbValues;
     public enum QuestionType {
         TITLE, TITLE_LONG, SLIDER, COMPLETION, RADIO_VERTICAL, BUTTON_FLEXIBLE, SLIDER_REVERSE, SLIDER_EDIT, PLUS_MINUS, SMILEY, SLIDER_100, SLIDER_100_PERCENT, BUTTON_GRID,
-        ANTHROPOMETRIC, GRIP_STRENGTH, VERTICAL_JUMP, BUTTON_FLEXIBLE_SCROLLABLE, SINGLE_FIELD, TEST_5_METRE, TEST_2_MIN
+        ANTHROPOMETRIC, GRIP_STRENGTH, VERTICAL_JUMP, BUTTON_FLEXIBLE_SCROLLABLE, SINGLE_FIELD, TEST_5_METRE, TEST_2_MIN, SIT_TO_RISE
     }
     public QuestionType questionType;
     public ItemQuestion(QuestionType questionType, String title, String subtitle, String subsubtitle, String[] dbKey, String[] options, Object[] dbValues){

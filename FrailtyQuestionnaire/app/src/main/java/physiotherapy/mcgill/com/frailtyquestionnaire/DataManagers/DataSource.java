@@ -38,6 +38,7 @@ public class DataSource {
     public static ItemSection bergraschSection;
     public static ItemSection test5metreSection;
     public static ItemSection test2minSection;
+    public static ItemSection testSitToRiseSection;
     public static void init(Context context){
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
@@ -270,6 +271,11 @@ public class DataSource {
         test2min.add(new ItemQuestion(ItemQuestion.QuestionType.TEST_2_MIN, null, null, null, new String[]{"TwoMin_DistanceWalked_metres", "TwoMin_AmbulatoryAidUsed", "TwoMin_NumFalls"}, null, null));
         test2minSection = new ItemSection(context.getString(R.string.test_2_min), test2min);
 
+        ArrayList<ItemQuestion> testSitToRise = new ArrayList<>();
+        testSitToRise.add(new ItemQuestion(ItemQuestion.QuestionType.SIT_TO_RISE, context.getString(R.string.sitting), null, null, new String[]{"SitToRise_SitTime_seconds", "SitToRise_SitScore"}, null, null));
+        testSitToRise.add(new ItemQuestion(ItemQuestion.QuestionType.SIT_TO_RISE, context.getString(R.string.rising), null, null, new String[]{"SitToRise_RiseTime_seconds", "SitToRise_RiseScore"}, null, null));
+        testSitToRiseSection = new ItemSection(context.getString(R.string.sit_to_rise_test), testSitToRise);
+
         ArrayList<ItemQuestion> completion = new ArrayList<>();
         completion.add(new ItemQuestion(ItemQuestion.QuestionType.COMPLETION, null, null, null, null, null, null));
         completionSection = new ItemSection(context.getString(R.string.finish), completion);
@@ -300,6 +306,7 @@ public class DataSource {
         sections.add(bergraschSection);
         sections.add(test5metreSection);
         sections.add(test2minSection);
+        sections.add(testSitToRiseSection);
         sections.add(completionSection);
     }
 
@@ -346,6 +353,7 @@ public class DataSource {
         chosenSections.add(bergraschSection);
         chosenSections.add(test5metreSection);
         chosenSections.add(test2minSection);
+        chosenSections.add(testSitToRiseSection);
         chosenSections.add(completionSection);
         return chosenSections;
     }

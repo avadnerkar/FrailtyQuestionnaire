@@ -428,6 +428,18 @@
     <string name="metres">metres</string>
     <string name="number_of_falls">Number of falls</string>
     <string name="test_2_min">2 minute walk test</string>
+    <string name="time">Time</string>
+    <string name="score">Score</string>
+    <string name="use_of_supports">Use of supports:</string>
+    <string name="hand">Hand</string>
+    <string name="forearm">Forearm</string>
+    <string name="knee">Knee</string>
+    <string name="lateral_side_of_leg">Lateral side of leg</string>
+    <string name="one_hand_on_knee_or_thigh">One hand on knee or thigh</string>
+    <string name="partial_loss_of_balance">Partial loss of balance during the action</string>
+    <string name="sitting">Sitting</string>
+    <string name="sit_to_rise_test">Sit to Rise Test</string>
+    <string name="rising">Rising</string>
 
 
 </resources>
