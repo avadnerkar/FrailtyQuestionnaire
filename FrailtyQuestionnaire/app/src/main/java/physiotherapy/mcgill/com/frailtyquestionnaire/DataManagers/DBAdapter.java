@@ -36,7 +36,7 @@ public class DBAdapter {
     public static final String DATA_TABLE = "dataTable";
 
     // Track DB version if a new version of your app changes the format.
-    public static final int DATABASE_VERSION = 39;
+    public static final int DATABASE_VERSION = 47;
 
 
     //Table Create Statements
@@ -256,10 +256,10 @@ public class DBAdapter {
 
 
             // Destroy old database:
-            _db.execSQL("DROP TABLE IF EXISTS " + DATA_TABLE);
+            //_db.execSQL("DROP TABLE IF EXISTS " + DATA_TABLE);
 
             // Recreate new database:
-            onCreate(_db);
+            //onCreate(_db);
         }
     }
 

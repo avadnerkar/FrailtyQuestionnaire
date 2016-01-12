@@ -40,6 +40,11 @@ import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSl
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSliderEdit;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSliderReverse;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSmiley;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSocio1;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSocio2;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSocio3;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSocio4;
+import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionSocio5;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionTitle;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionTitleLong;
 import physiotherapy.mcgill.com.frailtyquestionnaire.QuestionManagers.QuestionVerticalJump;
@@ -84,6 +89,9 @@ public class QuestionnaireActivity extends AppCompatActivity
                 break;
             case PHYSICAL:
                 sections = DataSource.physicalSections();
+                break;
+            case SOCIO:
+                sections = DataSource.socioSections();
                 break;
         }
         setContentView(R.layout.activity_questionnaire);
@@ -261,6 +269,21 @@ public class QuestionnaireActivity extends AppCompatActivity
             case SIT_TO_RISE:
                 new QuestionSitToRise(context, sectionNum, questionNum, questionHandler);
                 break;
+            case FORM_SOCIO1:
+                new QuestionSocio1(context, sectionNum, questionNum, questionHandler);
+                break;
+            case FORM_SOCIO2:
+                new QuestionSocio2(context, sectionNum, questionNum, questionHandler);
+                break;
+            case FORM_SOCIO3:
+                new QuestionSocio3(context, sectionNum, questionNum, questionHandler);
+                break;
+            case FORM_SOCIO4:
+                new QuestionSocio4(context, sectionNum, questionNum, questionHandler);
+                break;
+            case FORM_SOCIO5:
+                new QuestionSocio5(context, sectionNum, questionNum, questionHandler);
+                break;
         }
 
         mTitle = sections.get(sectionNum).title;
@@ -338,7 +361,6 @@ public class QuestionnaireActivity extends AppCompatActivity
 
         String[] keys = keyList.toArray(new String[keyList.size()]);
 
-        //Cursor cursor = HomeActivity.myDb.getRowData(HomeActivity.currentPatientID);
         Cursor cursor = HomeActivity.myDb.getColumns(keys);
         cursor.moveToFirst();
 

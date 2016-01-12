@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/name"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_name"
+                android:inputType="text"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- Phones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/phone_1"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_phone_1"
+                android:inputType="number"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/phone_2"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_phone_2"
+                android:inputType="number"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/family_phone"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_family_phone"
+                android:inputType="number"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <!-- Discharge -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/anticipated_place_discharge"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_anticipated_place_discharge"
+                android:inputType="text"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/anticipated_date_discharge"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_anticipated_date_discharge"
+                android:inputType="date"
+                android:focusable="false"/>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            style="@style/buttonLarge.Primary"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/sex"/>
+
+            <RadioGroup
+                android:id="@+id/rg_sex"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/sex_male"
+                    android:checked="false"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/male"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+                <RadioButton
+                    android:id="@+id/sex_female"
+                    android:checked="true"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/female"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <!-- DOB -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/date_of_birth"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_dob"
+                android:focusable="false"/>
+
+        </LinearLayout>
+
+
+        <!-- Language -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/language"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/english"
+                android:checked="false"
+                android:id="@+id/language_english"
+                android:textSize="@dimen/text_medium"
+                android:textColor="@color/White"/>
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/french"
+                android:checked="false"
+                android:id="@+id/language_french"
+                android:textSize="@dimen/text_medium"
+                android:textColor="@color/White"/>
+
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_language_other"
+                android:inputType="text"
+                android:layout_weight="1"
+                android:hint="@string/other"/>
+
+
+        </LinearLayout>
+
+        <!-- Education -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/education_level"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+            <RadioGroup
+                android:id="@+id/rg_education"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/education_primary"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/primary"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+                <RadioButton
+                    android:id="@+id/education_highschool"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/highschool"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+                <RadioButton
+                    android:id="@+id/education_cegep"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/cegep"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+                <RadioButton
+                    android:id="@+id/education_university"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/university"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+                <RadioButton
+                    android:id="@+id/education_none"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no_education"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+
+        <!-- Living arrangement -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/living_arrangement"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+            <RadioGroup
+                android:id="@+id/rg_livingarrangement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/livingarrangement_alone"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alone"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+                <RadioButton
+                    android:id="@+id/livingarrangement_roommate"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/roommate"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+                <RadioButton
+                    android:id="@+id/livingarrangement_spousefamily"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/spousefamily"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+                <RadioButton
+                    android:id="@+id/livingarrangement_familynospouse"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/familynospouse"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <!-- Children -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/children"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+            <RadioGroup
+                android:id="@+id/rg_children"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/children_yes"
+                    android:checked="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+                <RadioButton
+                    android:id="@+id/children_no"
+                    android:checked="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            style="@style/buttonLarge.Primary"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

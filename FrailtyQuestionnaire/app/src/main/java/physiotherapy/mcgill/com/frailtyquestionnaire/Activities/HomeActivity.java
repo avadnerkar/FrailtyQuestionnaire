@@ -165,6 +165,12 @@ public class HomeActivity extends Activity {
         final Intent intent = new Intent(context, QuestionnaireActivity.class);
         DialogQuestionnaireSelector.ClickHandler selectHandler = new DialogQuestionnaireSelector.ClickHandler() {
             @Override
+            public void onSocioClick() {
+                intent.putExtra("questionnaire_name", ItemSection.Questionnaire.SOCIO);
+                startActivity(intent);
+            }
+
+            @Override
             public void onNurseClick() {
                 intent.putExtra("questionnaire_name", ItemSection.Questionnaire.NURSE);
                 startActivity(intent);

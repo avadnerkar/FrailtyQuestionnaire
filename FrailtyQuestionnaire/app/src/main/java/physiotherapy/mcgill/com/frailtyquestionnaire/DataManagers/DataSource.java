@@ -12,6 +12,11 @@ import physiotherapy.mcgill.com.frailtyquestionnaire.R;
 public class DataSource {
 
     public static ArrayList<ItemSection> sections;
+    public static ItemSection socio1section;
+    public static ItemSection socio2section;
+    public static ItemSection socio3section;
+    public static ItemSection socio4section;
+    public static ItemSection socio5section;
     public static ItemSection barthelSection;
     public static ItemSection oarsSection;
     public static ItemSection gdsSection;
@@ -40,6 +45,26 @@ public class DataSource {
     public static ItemSection test2minSection;
     public static ItemSection testSitToRiseSection;
     public static void init(Context context){
+
+        ArrayList<ItemQuestion> socio1Questions = new ArrayList<>();
+        socio1Questions.add(new ItemQuestion(ItemQuestion.QuestionType.FORM_SOCIO1, null, null, null, new String[]{"Name", "Phone1", "Phone2", "FamilyPhone", "AnticipatedPlaceDischarge", "AnticipatedDateDischarge"}, null, null));
+        socio1section = new ItemSection(context.getString(R.string.details), socio1Questions);
+
+        ArrayList<ItemQuestion> socio2Questions = new ArrayList<>();
+        socio2Questions.add(new ItemQuestion(ItemQuestion.QuestionType.FORM_SOCIO2, null, null, null, new String[]{"AdmissionWeight_kg", "AdmissionHeight_cm", "AdmissionBMI", "AdmissionComorbidity", "AdmissionMultipleMorbidities", "AdmissionMiniMental", "AdmissionMOCA"}, null, null));
+        socio2section = new ItemSection(context.getString(R.string.metrics), socio2Questions);
+
+        ArrayList<ItemQuestion> socio3Questions = new ArrayList<>();
+        socio3Questions.add(new ItemQuestion(ItemQuestion.QuestionType.FORM_SOCIO3, null, null, null, new String[]{"Sex", "DOB", "AdmissionLanguage", "EducationLevel", "LivingArrangement", "Children"}, null, null));
+        socio3section = new ItemSection(context.getString(R.string.demographics), socio3Questions);
+
+        ArrayList<ItemQuestion> socio4Questions = new ArrayList<>();
+        socio4Questions.add(new ItemQuestion(ItemQuestion.QuestionType.FORM_SOCIO4, null, null, null, new String[]{"OverCounterDrugs", "UsesComplementaryTherapies", "ComplementaryTherapyTypes", "PrescriptionDrugs"}, null, null));
+        socio4section = new ItemSection(context.getString(R.string.medication), socio4Questions);
+
+        ArrayList<ItemQuestion> socio5Questions = new ArrayList<>();
+        socio5Questions.add(new ItemQuestion(ItemQuestion.QuestionType.FORM_SOCIO5, null, null, null, new String[]{"HomeServicesUsed", "NursingServices", "PersonalServices", "HouseworkServices", "PTServices", "OTServices", "Other1", "Other1Services", "Other2", "Other2Services", "Other3", "Other3Services"}, null, null));
+        socio5section = new ItemSection(context.getString(R.string.home_services), socio5Questions);
 
         ArrayList<ItemQuestion> barthelQuestions = new ArrayList<>();
         barthelQuestions.add(new ItemQuestion(ItemQuestion.QuestionType.TITLE, context.getString(R.string.barthel), null, null, null, null, null));
@@ -281,6 +306,11 @@ public class DataSource {
         completionSection = new ItemSection(context.getString(R.string.finish), completion);
 
         sections = new ArrayList<>();
+        sections.add(socio1section);
+        sections.add(socio2section);
+        sections.add(socio3section);
+        sections.add(socio4section);
+        sections.add(socio5section);
         sections.add(fallSection);
         sections.add(barthelSection);
         sections.add(oarsSection);
@@ -358,4 +388,14 @@ public class DataSource {
         return chosenSections;
     }
 
+    public static ArrayList<ItemSection> socioSections() {
+        ArrayList<ItemSection> chosenSections = new ArrayList<>();
+        chosenSections.add(socio1section);
+        chosenSections.add(socio2section);
+        chosenSections.add(socio3section);
+        chosenSections.add(socio4section);
+        chosenSections.add(socio5section);
+        chosenSections.add(completionSection);
+        return chosenSections;
+    }
 }

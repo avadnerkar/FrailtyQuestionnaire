@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- Weight -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/weight"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_weight"
+                android:inputType="number"/>
+
+            <RadioGroup
+                android:id="@+id/rg_weight"
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_weight_kg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kg"
+                    android:textColor="@color/White"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radio_weight_lbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lb"
+                    android:textColor="@color/White"/>
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+
+        <!-- Height -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/height"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_height"
+                android:inputType="numberDecimal"/>
+
+            <RadioGroup
+                android:id="@+id/rg_height"
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_height_cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cm"
+                    android:textColor="@color/White"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radio_weight_ft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ft"
+                    android:textColor="@color/White"/>
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ft_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/height_ft_instructions"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/White"
+            android:visibility="gone"/>
+
+        <!-- BMI -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/BMI"/>
+
+            <TextView
+                style="@style/textFormStyle"
+                android:id="@+id/calc_bmi"
+                android:text=""/>
+
+            <TextView
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_medium"
+                android:padding="@dimen/button_padding"
+                android:textColor="@color/White"/>
+
+        </LinearLayout>
+
+
+        <!-- Comorbidity -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/comorbidity"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_comorbidity"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+
+        <!-- Multiple morbidities -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/multiple_morbidities"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_multiple_morbidities"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+
+        <!-- Mini mental -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/mini_mental"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_mini_mental"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+
+        <!-- MOCA -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/moca"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_moca"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            style="@style/buttonLarge.Primary"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

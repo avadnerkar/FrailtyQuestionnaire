@@ -16,7 +16,7 @@ public class DialogQuestionnaireSelector extends Dialog{
 
 
     public Context context;
-    public Button nurseButton, evaluatorButton, physicalButton;
+    public Button socioButton, nurseButton, evaluatorButton, physicalButton;
     public ClickHandler handler;
 
     public DialogQuestionnaireSelector(Context context, ClickHandler handler) {
@@ -30,6 +30,16 @@ public class DialogQuestionnaireSelector extends Dialog{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_select_questionnaire);
+
+        socioButton = (Button) findViewById(R.id.button_socio);
+        socioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handler.onSocioClick();
+                dismiss();
+            }
+        });
+
         nurseButton = (Button) findViewById(R.id.button_nurse);
         nurseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +69,9 @@ public class DialogQuestionnaireSelector extends Dialog{
     }
 
     public interface ClickHandler{
+
+        void onSocioClick();
+
         void onNurseClick();
 
         void onEvaluatorClick();

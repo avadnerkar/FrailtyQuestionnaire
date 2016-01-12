@@ -27,6 +27,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/socio"
+            android:id="@+id/button_socio"
+            style="@style/buttonLarge.Primary"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/nurse"
             android:id="@+id/button_nurse"
             style="@style/buttonLarge.Primary"/>

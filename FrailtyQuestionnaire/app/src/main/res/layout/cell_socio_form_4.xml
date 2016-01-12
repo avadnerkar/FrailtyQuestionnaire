@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/over_counter_medication"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/acetaminophen"
+            android:tag="Acetaminophen"
+            android:checked="false"
+            android:id="@+id/check1"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/ibuprofen"
+            android:tag="Ibuprofen"
+            android:checked="false"
+            android:id="@+id/check2"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/asa"
+            android:tag="ASA"
+            android:checked="false"
+            android:id="@+id/check3"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/multivitamin"
+            android:tag="Multivitamin"
+            android:checked="false"
+            android:id="@+id/check4"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/mineral"
+            android:tag="Mineral"
+            android:checked="false"
+            android:id="@+id/check5"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/VitC"
+            android:tag="VitC"
+            android:checked="false"
+            android:id="@+id/check6"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/VitD"
+            android:tag="VitD"
+            android:checked="false"
+            android:id="@+id/check7"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/VitE"
+            android:tag="VitE"
+            android:checked="false"
+            android:id="@+id/check8"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/units_column"
+            android:text="@string/calcium"
+            android:tag="Calcium"
+            android:checked="false"
+            android:id="@+id/check9"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/White"/>
+
+        <EditText
+            style="@style/textFormStyle"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:id="@+id/other_drug"
+            android:layout_marginStart="@dimen/units_column"
+            android:inputType="text"
+            android:hint="@string/other_drug"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/complementary_therapies"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/use_complementary_therapies"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="match_parent"/>
+
+            <RadioGroup
+                android:id="@+id/rg_complementary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/complementary_yes"
+                    android:checked="true"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yes"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+                <RadioButton
+                    android:id="@+id/complementary_no"
+                    android:checked="false"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/White"/>
+
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/specify_complementary_therapies"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_complementary"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/textFormStyle"
+                android:text="@string/prescription_meds"/>
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/units_column"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                style="@style/textFormStyle"
+                android:id="@+id/edit_prescription"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            style="@style/buttonLarge.Primary"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>
